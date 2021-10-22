@@ -12,3 +12,14 @@
 .mt-7 {
   margin-top: 4rem;
 }
+
+/* CUSTOM PADDING */
+.py-6 {
+  padding: 3.5rem 0
+}
+
+
+/* BORDER RADIUS */
+.rounded-6 {
+  border-radius: .6rem!important;
+}
