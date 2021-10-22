@@ -93,6 +93,14 @@ if(registFormEl) {
   const name = document.getElementById("name")
   const email = document.getElementById("email")
   const password = document.getElementById("password")
+  const confirmPass = document.getElementById("konfirmasiPassword")
+
+  const elements = {
+    name: name,
+    email: email,
+    password: password,
+    confirmPass: confirmPass,
+  }
   
   registFormEl.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -103,7 +111,11 @@ if(registFormEl) {
       password: password.value.trim(),
     }
     
-    register(data)
+    let isValid = validateRegister(elements, data)
+
+    if(isValid) {
+      register(data)
+    }
   })
 }
 
@@ -114,50 +126,59 @@ showPasswordEl.addEventListener('click', () => {
 
 
 const register = (data) => {
-  let isValid = validateRegister(data)
+  let users = getLocalStorage("users")
   
-  if(isValid) {
-    let users = getLocalStorage("users")
-    
-    if(users) {
-      users = JSON.parse(users)
-      users.push(data)
-    } else {
-      users = [data]
-    }
-    
-    users = JSON.stringify(users)
-    
-    setLocalStorage("users", users)
-    setLocalStorage("login", data.email)
-    window.location.href = '../index.html'
+  if(users) {
+    users = JSON.parse(users)
+    users.push(data)
+  } else {
+    users = [data]
   }
+  
+  users = JSON.stringify(users)
+  
+  setLocalStorage("users", users)
+  setLocalStorage("login", data.email)
+  window.location.href = '../index.html'
 }
 
-const validateRegister = (data) => {
+const validateRegister = (elements, data) => {
+  // GET ALL ELEMENTS NEEDED
+  let namePrevSib = elements.name.previousElementSibling
+  let emailPrevSib = elements.email.previousElementSibling
+  let passwordPrevSib = elements.password.previousElementSibling
+  let confirmPassPrevSib = elements.confirmPass.previousElementSibling
   const validName = /.+/
 
   if(validName.test(data.name)) {
     if(validateEmail(data.email)) {
       
       if(checkRegisteredEmail(data.email)) {
-        alert("Email ini sudah terdaftar, silakan login")
+        const alert = document.querySelector(".alert")
+        alert.insertAdjacentHTML('afterbegin', '<span>Email ini sudah terdaftar. Silakan login</span>')
+        alert.classList.remove("d-none")
         return false
       } else {
         if(validatePassword(data.password)) {
           return true
         } else {
-          alert("Invalid password")
+          elements.password.classList.add("is-invalid")
+          passwordPrevSib.classList.add("border", "border-danger")
+          elements.password.parentElement.nextElementSibling.classList.add("text-danger")
           return false
         }
       }
       
     } else {
-      alert("Invalid email")
+      elements.email.classList.add("is-invalid")
+      emailPrevSib.classList.add("border", "border-danger")
+      elements.email.parentElement.nextElementSibling.classList.remove("d-none")
       return false
     }
   } else {
-    alert("Invalid name")
+    elements.name.classList.add("is-invalid")
+    namePrevSib.classList.add("border", "border-danger")
+    elements.name.parentElement.nextElementSibling.classList.remove("d-none")
     return false
   }
   
