@@ -54,7 +54,24 @@
   
             <div class="nav navbar-nav ms-auto w-100 justify-content-end">
               <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
-              <button class="btn btn-sm btn-danger d-none" id="logoutBtn">Logout</button>
+              
+              <div class="d-none" id="account-menu">
+                <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                  <li class="nav-item"><a class="nav-link fs-3" href="#"><i class="fas fa-shopping-bag"></i></a></li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Wishlist</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="fas fa-clipboard-list me-2"></i> Riwayat Belanja</a></li>
+
+                      <li><hr class="dropdown-divider"></li>
+                      <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
   
           </div>
@@ -62,16 +79,33 @@
       </nav>
     </header>
 
-    <!-- SECTION -->
+    <!-- Modal Konfirmasi Logout -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-body text-center py-4">
+            <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+            <h3>Anda yakin ingin keluar?</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION INTRO -->
     <section>
       <div class="container py-6">
-        <div class="row justify-content-between align-items-center g-5">
-          <div class="col-lg-6">
+        <div class="row justify-content-between align-items-center g-md-5 g-0">
+          <div class="col-lg-6 col-md-6 col-12">
             <h1 class="text-bolder mb-3">Dapatkan Kebutuhan Sehari-hari Anda di Sini</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet impedit porro, repellendus dolorum est sit sunt veniam culpa dolorem ratione. Dolorum facere incidunt dolores excepturi est beatae ex distinctio. Incidunt.</p>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-6 col-12">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -103,17 +137,17 @@
       </div>
     </section>
 
-    <!-- SECTION -->
+    <!-- SECTION KATEGORI PRODUK -->
     <section class="bg-light">
       <div class="container py-6">
         <h3 class="text-center">Belanja Sesuai Kebutuhan Anda</h3>
-        <div class="row justify-content-center mt-5 text-center gx-md-5 gy-md-0 gy-5">
+        <div class="row justify-content-center mt-5 text-center gx-md-5 gx-0 gy-md-0 gy-5">
           <div class="col-lg-4 col-md-5 col-10">
             <div class="card p-2">
               <div class="card-body">
                 <h5 class="card-title text-center">Bahan Makanan</h5>
                 <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="card-img-top rounded-3 my-3" alt="Vegetables">
-                <a href="#" class="btn btn-success">Belanja</a>
+                <a class="btn btn-success belanja">Belanja</a>
               </div>
             </div>
           </div>
@@ -122,7 +156,7 @@
               <div class="card-body text-center">
                 <h5 class="card-title text-center">Sembako</h5>
                 <img src="https://images.unsplash.com/photo-1565061828011-282424b9ab40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80" class="card-img-top rounded-3 my-3" alt="Groceries">
-                <a href="#" class="btn btn-success">Belanja</a>
+                <a class="btn btn-success belanja">Belanja</a>
               </div>
             </div>
           </div>
@@ -130,7 +164,7 @@
       </div>
     </section>
     
-    <!-- SECTION -->
+    <!-- SECTION PRODUK TERBARU -->
     <section>
       <div class="container py-5">
         <h3 class="text-center">Produk Terbaru</h3>
@@ -141,7 +175,7 @@
                 <img src="https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="card-img-top rounded-3" alt="Tomatoes">
                 <h5 class="card-title text-center mt-3 mb-2">Tomat Kecil</h5>
                 <p class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                <a href="#" class="btn btn-sm btn-success">Beli</a>
+                <a class="btn btn-sm btn-success beli">Beli</a>
               </div>
             </div>
           </div>
@@ -152,7 +186,7 @@
                 <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1171&q=80" class="card-img-top rounded-3" alt="Pepper">
                 <h5 class="card-title text-center mt-3 mb-2">Paprika</h5>
                 <p class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                <a href="#" class="btn btn-sm btn-success">Beli</a>
+                <a class="btn btn-sm btn-success beli">Beli</a>
               </div>
             </div>
           </div>
@@ -163,7 +197,7 @@
                 <img src="https://images.unsplash.com/photo-1580792442222-081d7796d896?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="card-img-top rounded-3" alt="Spinach">
                 <h5 class="card-title text-center mt-3 mb-2">Bayam</h5>
                 <p class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                <a href="#" class="btn btn-sm btn-success">Beli</a>
+                <a class="btn btn-sm btn-success beli">Beli</a>
               </div>
             </div>
           </div>
@@ -174,13 +208,30 @@
                 <img src="https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img-top rounded-3" alt="Lemon">
                 <h5 class="card-title text-center mt-3 mb-2">Lemon</h5>
                 <p class="text-primary"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-                <a href="#" class="btn btn-sm btn-success">Beli</a>
+                <a class="btn btn-sm btn-success beli">Beli</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+     <!-- Modal Harus Login -->
+     <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-body p-4 text-center">
+            <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+            <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <a href="./login.html" class="btn btn-sm btn-success">Masuk</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="text-muted py-5 bg-light">
