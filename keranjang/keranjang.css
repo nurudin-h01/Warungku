@@ -1,0 +1,125 @@
+/* NAVBAR ACTIVE */
+.active {
+  font-weight: 500;
+}
+
+/* CUSTOM MARGIN */
+.mt-6 {
+  margin-top: 3.5rem;
+}
+
+.mt-7 {
+  margin-top: 4rem;
+}
+
+.container-j {
+  border-color: black;
+  border: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #00b55e;
+  color: black;
+  border-color: #e5e5e5;
+  text-align: center;
+  padding: 30px;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+.container-isi-tabel {
+  text-align: left;
+  margin-left: 200px;
+}
+
+.tabel {
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+/* -- box jumlah -- */
+
+.quantity {
+  display: inline-block;
+}
+
+.quantity .input-text.qty {
+  width: 35px;
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #efefef;
+}
+
+.quantity.buttons_added {
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.quantity.buttons_added input {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+  padding: 7px 10px 8px;
+  height: 41px;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  cursor: pointer;
+}
+
+.quantity.buttons_added .minus {
+  border-right: 0;
+}
+
+.quantity.buttons_added .plus {
+  border-left: 0;
+}
+
+.quantity.buttons_added .minus:hover,
+.quantity.buttons_added .plus:hover {
+  background: #eeeeee;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+}
+
+.quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+  outline: none;
+}
+
+.button-belanja {
+  align: right;
+  padding: 50px;
+  position: end;
+}
+
+.center {
+  justify-content: center;
+}
+
+.h4 {
+  text-align: right;
+}
+
+.judul {
+  text-align: center;
+  padding: 50px;
+}
+
+.tabelkeranjang {
+  margin-left: 200px;
+  margin-right: 200px;
+}
