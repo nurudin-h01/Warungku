@@ -16,9 +16,10 @@
 <body>
     <!-- NAVBAR -->
     <header>
+        <!-- NAVBAR -->
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand text-success fw-bold w-50" href="#">Warungku</a>
+                <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +28,45 @@
                 <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                            <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Produk</a>
+                            <a class="nav-link active" aria-current="page" href="kategori/kategori.html">Produk</a>
                         </li>
                     </ul>
+
                     <div class="nav navbar-nav ms-auto w-100 justify-content-end">
                         <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+                        <div class="d-none" id="account-menu">
+                            <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
+                                            class="fas fa-shopping-bag"></i></a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false"><i
+                                            class="fas fa-user-circle"></i></a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/history2.html"><i
+                                                    class="fas fa-clipboard-list me-2"></i>
+                                                Riwayat Belanja</a>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><button class="dropdown-item text-danger" id="logoutBtn"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                                    class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </nav>
@@ -267,8 +298,8 @@
                             </div>
                             <div class="toast-body text-black text-white bg-success">
                                 <p>Pesanan anda telah dibuat silahkan lanjut ke pembayaran</p>
-                                <button class="btn btn-outline-success text-end text-white" id="toastButton"
-                                    style="border-color: white; margin-left: 75%;">Lanjut</button>
+                                <a href="/pembayaran.html" class="btn btn-outline-success text-end text-white"
+                                    id="toastButton" style="border-color: white; margin-left: 75%;">Lanjut</a>
                             </div>
                         </div>
 
@@ -299,7 +330,7 @@
                             aria-labelledby="home-tab ">
                             <div class="card mb-3 " style="border: none; ">
                                 <ul class="list-group list-group-flush ">
-                                    <a href="# " class="list-group-item ms-3 me-3 mt-3 border border-2 method ">
+                                    <a href="#" class="list-group-item ms-3 me-3 mt-3 border border-2 method ">
                                         <div class="row ">
                                             <div class="col-6 col-xl-3 ">
                                                 <img src="asset/gopay.png " alt=" " height="35px " width="auto ">
@@ -404,6 +435,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous ">
         </script>
     <script src="index.js "></script>
+    <script type="module" src="/js/checklogin.js"></script>
 </body>
 
 </html>

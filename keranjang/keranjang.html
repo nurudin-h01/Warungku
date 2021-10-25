@@ -1,136 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keranjang</title>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="keranjang.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand text-success fw-bold w-50" href="#">Warung Mama</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Produk</a>
-              </li>
-            </ul>
+  <!-- CSS -->
+  <link rel="stylesheet" href="keranjang.css" />
+</head>
 
-            <div class="nav navbar-nav ms-auto w-100 justify-content-end">
-              <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="kategori/kategori.html">Produk</a>
+            </li>
+          </ul>
+
+          <div class="nav navbar-nav ms-auto w-100 justify-content-end">
+            <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+            <div class="d-none" id="account-menu">
+              <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
+                      class="fas fa-shopping-bag"></i></a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
+                        Riwayat Belanja</a>
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <h1 class="judul">Keranjang Belanja</h1>
-    <!-- SECTION -->
-    <!-- TABEL ISI -->
-    <div class="tabelkeranjang">
-      <table class="table">
-        <thead>
-          <tr class="table-success">
-            <th scope="col">id</th>
-            <th scope="col">Produk</th>
-            <th scope="col">Jumlah</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Pilih</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Apel Merah</td>
-            <td>
-              <div class="quantity buttons_added">
-                  <input type="button" value="-" class="minus" /><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" /><input
-                    type="button"
-                    value="+"
-                    class="plus"
-                  />/ Kg
-            </td>
-            <td>Rp. 35.000</td>
-            <td>
-              <form action="/action_page.php">
-                  <input type="checkbox" id="namaproduk" name="nama" value="jumlah" />
-                </form>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Gula Pasir</td>
-            <td>
-              <div class="quantity buttons_added">
-                  <input type="button" value="-" class="minus" /><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" /><input
-                    type="button"
-                    value="+"
-                    class="plus"
-                  />/ Kg
-            </td>
-            <td>Rp. 24.000</td>
-            <td>
-              <input type="checkbox" id="namaproduk" name="nama" value="jumlah" />
-          </form>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td colspan="2"></td>
-            <td>
-                <h6>Total</h6>
-              </td>
-              <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
 
-    <!-- FOOTER -->
-    <footer class="text-muted py-5 bg-light">
-      <div class="container">
-        <div class="row justify-content-around">
-          <div class="col-lg-4 col-md-5 col-sm-12">
-            <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
-          </div>
-          <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
-            <h4 class="text-success">Warungku</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod reiciendis
-              mollitia.
-            </p>
-          </div>
-        </div>
-        <div class="row mt-5 text-center">
-          <div class="col">
-            <h6>Created By Kelompok 2 | All Right Reserved</h6>
-          </div>
         </div>
       </div>
-    </footer>
+    </nav>
+  </header>
+  <h1 class="judul">Keranjang Belanja</h1>
+  <!-- SECTION -->
+  <!-- TABEL ISI -->
+  <div class="tabelkeranjang">
+    <table class="table">
+      <thead>
+        <tr class="table-success">
+          <th scope="col">id</th>
+          <th scope="col">Produk</th>
+          <th scope="col">Jumlah</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Pilih</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Apel Merah</td>
+          <td>
+            <div class="quantity buttons_added">
+              <input type="button" value="-" class="minus" /><input type="number" step="1" min="1" max=""
+                name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern=""
+                inputmode="" /><input type="button" value="+" class="plus" />/ Kg
+          </td>
+          <td>Rp. 35.000</td>
+          <td>
+            <form action="/action_page.php">
+              <input type="checkbox" id="namaproduk" name="nama" value="jumlah" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Gula Pasir</td>
+          <td>
+            <div class="quantity buttons_added">
+              <input type="button" value="-" class="minus" /><input type="number" step="1" min="1" max=""
+                name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern=""
+                inputmode="" /><input type="button" value="+" class="plus" />/ Kg
+          </td>
+          <td>Rp. 24.000</td>
+          <td>
+            <input type="checkbox" id="namaproduk" name="nama" value="jumlah" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td colspan="2"></td>
+          <td>
+            <h6>Total</h6>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/kategori/kategori.html" class="btn btn-outline-success">
+      Lanjut Belanja
+    </a>
+    <a href="/pembayaran/index.html" class="btn btn-success float-end">
+      Beli Sekarang
+    </a>
+  </div>
 
-    <!-- Bootstrap bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- JAVASCRIPT -->
-    <script src="keranjang.js"></script>
-  </body>
+  <!-- FOOTER -->
+  <footer class="text-muted py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-5 col-sm-12">
+          <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
+          <h4 class="text-success">WarungMama</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur
+            tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod
+            reiciendis
+            mollitia.
+          </p>
+        </div>
+      </div>
+      <div class="row mt-5 text-center">
+        <div class="col">
+          <h6>Created By Kelompok 2 | All Right Reserved</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- JAVASCRIPT -->
+  <script src="keranjang.js"></script>
+  <script type="module" src="/js/checklogin.js"></script>
+</body>
+
 </html>

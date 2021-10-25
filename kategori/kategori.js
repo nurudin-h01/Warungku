@@ -29,3 +29,5 @@ String.prototype.getDecimals ||
       jQuery(this).is(".plus") ? (c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals()))) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())),
       a.trigger("change");
   });
+
+

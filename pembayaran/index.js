@@ -43,6 +43,7 @@ let provider_image = document.querySelector('#metodebayar')
 // element toast
 let btnHideToast = document.querySelector('#toastButton')
 
+let methods = document.querySelectorAll('.method')
 
 // untuk tampung total
 let temp_total = 0
