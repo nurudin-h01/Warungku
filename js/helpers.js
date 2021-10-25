@@ -53,7 +53,7 @@ export const isLogin = () => {
 // LOGOUT
 export const logout = () => {
   localStorage.removeItem('login')
-  window.location.href = "../login.html"
+  location.reload()
 }
 
 
@@ -66,3 +66,21 @@ export const setLocalStorage = (key, value) => {
 export const getLocalStorage = (key) => {
   return localStorage.getItem(key)
 }
+
+
+// GET USER DATA
+export const getUser = () => {
+  let email = getLocalStorage("login")
+  let users = JSON.parse(getLocalStorage("users"))
+  let user = users.find(user => user.email === email)
+  return user
+}
+
+// FETCH API
+export const getProducts = async () => {
+  // EDIT HERE
+  const url = "https://6172fc04110a740017222f15.mockapi.io/products"
+  let response = await fetch(url)
+  let data = await response.json()
+  return data
+};

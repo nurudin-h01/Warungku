@@ -65,12 +65,14 @@ const loginValidation = (elements) => {
           return true
         } else {
           const alert = document.querySelector(".alert")
-          alert.insertAdjacentHTML('afterbegin', '<span>Password salah.</span>')
+          alert.firstElementChild.classList.remove("d-none")
+          alert.children[1].classList.add("d-none")
           alert.classList.remove("d-none")
         }
       } else {
         const alert = document.querySelector(".alert")
-        alert.insertAdjacentHTML('afterbegin', '<span>Email anda belum terdaftar.</span>')
+        alert.children[0].classList.add("d-none")
+        alert.children[1].classList.remove("d-none")
         alert.classList.remove("d-none")
       }
     } else {
@@ -86,6 +88,12 @@ const loginValidation = (elements) => {
   }
 }
 
+// SHOW PASSWORD
+const showPasswordEl = document.getElementById("showPassword")
+showPasswordEl.addEventListener('click', () => {
+  (showPasswordEl.checked)? password.type = "text" : password.type = "password"
+})
+
 // REGISTER EVENT LISTENER
 const registFormEl = document.getElementById("registForm")
 
@@ -94,7 +102,7 @@ if(registFormEl) {
   const email = document.getElementById("email")
   const password = document.getElementById("password")
   const confirmPass = document.getElementById("konfirmasiPassword")
-
+  
   const elements = {
     name: name,
     email: email,
@@ -109,20 +117,23 @@ if(registFormEl) {
       name: name.value.trim(),
       email: email.value.trim(),
       password: password.value.trim(),
+      confirmPass: confirmPass.value.trim(),
     }
     
     let isValid = validateRegister(elements, data)
-
+    
     if(isValid) {
       register(data)
     }
   })
+  
+  
+  showPasswordEl.addEventListener('click', () => {
+    (showPasswordEl.checked)? confirmPass.type = "text" : confirmPass.type = "password"
+  })
+  
 }
 
-const showPasswordEl = document.getElementById("showPassword")
-showPasswordEl.addEventListener('click', () => {
-  (showPasswordEl.checked)? password.type = "text" : password.type = "password"
-})
 
 
 const register = (data) => {
@@ -142,25 +153,51 @@ const register = (data) => {
   window.location.href = '../index.html'
 }
 
+const passwordConfirmation = (password, confirmPassword) => password === confirmPassword
+
 const validateRegister = (elements, data) => {
   // GET ALL ELEMENTS NEEDED
   let namePrevSib = elements.name.previousElementSibling
   let emailPrevSib = elements.email.previousElementSibling
   let passwordPrevSib = elements.password.previousElementSibling
   let confirmPassPrevSib = elements.confirmPass.previousElementSibling
+  const alert = document.querySelector(".alert")
   const validName = /.+/
 
   if(validName.test(data.name)) {
+    elements.name.classList.remove("is-invalid")
+    namePrevSib.classList.remove("border-danger")
+    elements.name.parentElement.nextElementSibling.classList.add("d-none")
+    elements.name.classList.add("is-valid")
+    namePrevSib.classList.add("border-success")
+
     if(validateEmail(data.email)) {
+      elements.email.classList.remove("is-invalid")
+      emailPrevSib.classList.remove("border-danger")
+      elements.email.parentElement.nextElementSibling.classList.add("d-none")
+      elements.email.classList.add("is-valid")
+      emailPrevSib.classList.add("border-success")
       
       if(checkRegisteredEmail(data.email)) {
-        const alert = document.querySelector(".alert")
-        alert.insertAdjacentHTML('afterbegin', '<span>Email ini sudah terdaftar. Silakan login</span>')
         alert.classList.remove("d-none")
         return false
       } else {
+        alert.classList.add("d-none")
         if(validatePassword(data.password)) {
-          return true
+          elements.password.classList.remove("is-invalid")
+          passwordPrevSib.classList.remove("border-danger")
+          elements.password.parentElement.nextElementSibling.classList.remove("text-danger")
+          elements.password.classList.add("is-valid")
+          passwordPrevSib.classList.add("border-success")
+
+          if(passwordConfirmation(data.password, data.confirmPass)) {
+            return true
+          } else {
+            elements.confirmPass.classList.add("is-invalid")
+            confirmPassPrevSib.classList.add("border", "border-danger")
+            elements.confirmPass.parentElement.nextElementSibling.classList.remove("d-none")
+            return false
+          }
         } else {
           elements.password.classList.add("is-invalid")
           passwordPrevSib.classList.add("border", "border-danger")
@@ -183,3 +220,6 @@ const validateRegister = (elements, data) => {
   }
   
 }
+
+const dismissAlert = document.querySelector(".btn-close")
+dismissAlert.addEventListener("click", () => dismissAlert.parentElement.classList.add("d-none"))
