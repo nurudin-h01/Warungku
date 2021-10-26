@@ -118,6 +118,21 @@
     </a>
   </div>
 
+  <!-- MODAL HARUS MEMILIH SETIDAKNYA SATU BARANG -->
+  <div class="modal fade" id="requiredToChoose" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body p-4 text-center">
+          <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+          <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus memilih setidaknya satu produk untuk diproses</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="text-muted py-5 bg-light">
@@ -150,8 +165,8 @@
     crossorigin="anonymous"></script>
 
   <!-- JAVASCRIPT -->
-  <script type="module" src="keranjang.js"></script>
   <script type="module" src="/js/checklogin.js"></script>
+  <script type="module" src="keranjang.js"></script>
 </body>
 
 </html>
