@@ -34,6 +34,9 @@ belanjaBtnEl.forEach(belanjaBtn => {
   belanjaBtn.addEventListener('click', () => {
     if(!isLogin()) {
       modalEl.toggle()
+    } else {
+      let dest = belanjaBtn.getAttribute("data-kategori")
+      location.href = `kategori/kategori.html#${dest}`
     }
   })
 })
@@ -42,17 +45,16 @@ belanjaBtnEl.forEach(belanjaBtn => {
 // RENDER PRODUCT TO INDEX
 const createProductElement = (product) => {
   const colEl = document.createElement('div')
-  colEl.classList.add("col-lg-3")
+  colEl.classList.add("col-lg-3", "col-md-4", "col-10")
   
   const productCardEl = `
   <div class="card">
-    <div class="card-body text-center">
-      <small class="d-none" id="idProduct" data-id=${product.id}></small>
-      <img src="${product.img}" class="card-img-top rounded-3" alt="Tomatoes">
-      <h5 class="card-title text-center mt-3 mb-2">${product.name}</h5>
-      <h6 class="mb-2">Rp${new Intl.NumberFormat("id-ID").format(product.harga)}</h6>
-      <p class="text-primary"><small><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></small></p>
-      <a class="btn btn-sm btn-success beli">Beli</a>
+    <img src="${product.img}" class="card-img-top" alt="${product.name}" height="200rem">
+    <div class="card-body text-center" data-id="${product.id}">
+      <h5 class="card-title text-center my-2"><a href="deskripsi barang/deskripsi.html?data-id=${product.id}" class="text-dark text-decoration-none">${product.name}</a></h5>
+      <p class="text-orange mb-2"><small><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></small></p>
+      <p>Rp${new Intl.NumberFormat("id-ID").format(product.harga)}</p>
+      <a class="btn btn-sm btn-success beli w-25 my-1">Beli</a>
     </div>
   </div>
     `
@@ -74,6 +76,9 @@ const renderproducts = async () => {
     beliBtn.addEventListener('click', () => {
       if(!isLogin()) {
         modalEl.toggle()
+      } else {
+        let id = beliBtn.parentNode.getAttribute("data-id")
+        location.href = `deskripsi barang/deskripsi.html?data-id=${id}`
       }
     })
   })
