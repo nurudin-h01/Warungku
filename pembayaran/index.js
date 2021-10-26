@@ -49,16 +49,7 @@ let methods = document.querySelectorAll('.method')
 let temp_total = 0
 
 // Untuk simpan ke local
-let transaction = {
-    nama: "",
-    alamat: "",
-    noTelepon: "",
-    kota: "",
-    buah: {},
-    total: "",
-}
-temp = []
-let count = 1
+let local = []
 
 
 // fungsi untuk form pengiriman
@@ -241,13 +232,6 @@ function disabledcart(){
     elAlamat.disabled = true
     elNomorTelepon.disabled = true
     elkirim.disabled = true
-    cart1.forEach(function(cart) {
-        let plus = cart.querySelector('.plus-btn')
-        let minus = cart.querySelector('.minus-btn')
-        plus.disabled = true
-        minus.disabled = true
-        
-    })
 }
 
 // fungsi aktivasi form
@@ -256,12 +240,6 @@ function activatedcart(){
     elAlamat.disabled = false
     elNomorTelepon.disabled = false
     elkirim.disabled = false
-    cart1.forEach(function(cart) {
-        let plus = cart.querySelector('.plus-btn')
-        let minus = cart.querySelector('.minus-btn')
-        plus.disabled = false
-        minus.disabled = false
-    })
 }
 
 // fungsi untuk mengubah status border
@@ -272,29 +250,6 @@ function removeborder() {
     })
 }
 
-// fungsi perhitungan belanja
-cart1.forEach(function(cart) {
-    let amount = cart.querySelector('.amount')
-    let plus = cart.querySelector('.plus-btn')
-    let minus = cart.querySelector('.minus-btn')
-    let subtotal = document.querySelector('.subtotal')
-    let price = cart.querySelector('.price')
-    let sisa = cart.querySelector(".ms-1")
-    plus.addEventListener('click', function() {
-        if (parseInt(sisa.textContent) != 0) {
-            amount.innerHTML = parseInt(amount.textContent) + 1
-            sisa.innerHTML = parseInt(sisa.textContent) - 1
-            subtotal.innerHTML = parseInt(subtotal.textContent) + (parseInt(price.textContent))
-        }
-    })
-    minus.addEventListener('click', function() {
-        if (parseInt(amount.textContent) != 0) {
-            amount.innerHTML = parseInt(amount.textContent) - 1
-            sisa.innerHTML = parseInt(sisa.textContent) + 1
-            subtotal.innerHTML = parseInt(subtotal.textContent) - (parseInt(price.textContent))
-        }
-    })
-})
 
 
 // fungsi tab 3
@@ -315,9 +270,19 @@ elReview.addEventListener('click', function() {
 
 // fungsi memanggil toast dan set local
 document.querySelector("#basicToastBtn").onclick = function() {
+    let transaction = {
+        nama: "",
+        email: "",  
+        alamat: "",
+        noTelepon: "",
+        buah: {},
+        total: "",
+    }
+    temp = []
     let modal = document.querySelector('.toast-container')
     modal.classList.remove('d-none')
     new bootstrap.Toast(document.querySelector('#basicToast')).show();
+    transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
     transaction.noTelepon = elNomorTelepon.value
@@ -326,16 +291,16 @@ document.querySelector("#basicToastBtn").onclick = function() {
         let fruit = cart.querySelector('.fruit')  
         let price = cart.querySelector('.price')
         let history = {
-            nama_buah : fruit.textContent,
+            namaItem : fruit.textContent,
             harga: price.textContent,
         }
         temp.push(history)
     })
     transaction.buah = temp
     transaction.total = subtotal.textContent
-    localStorage.setItem(`${transaction.nama}_${count}`, JSON.stringify(transaction));
-    count += 1
-    console.log(transaction)
+    local.push(transaction)
+    localStorage.setItem(`History`, JSON.stringify(local));
+    console.log(local)
     // for (var i = 0; i < localStorage.length; i++) {
     //     var key = localStorage.key(i);
     //     var value = localStorage.getItem(key);
@@ -357,3 +322,44 @@ btnHideToast.addEventListener('click', function() {
     let modal = document.querySelector('.toast-container')
     modal.classList.add('d-none')
 })
+
+
+// fungsi ambil data untuk pesanan
+function cartItem(){
+    // Masih nunggu local storage
+    let card_body = document.createElement('div')
+    card_body.className = 'card-body card-items'
+    let row = document.createElement('div')
+    row.className = 'row'
+    let title = document.createElement('h6')
+    title.className = 'fw-bold fruit'
+    let col_3 = document.createElement('div')
+    col_3.className = 'col-3'
+    let img = document.createElement('img')
+    img.setAttribute('src', '//')
+    img.setAttribute('height', '80px')
+    img.setAttribute('width', '80px')
+    img.setAttribute('style', 'object-fit: cover')
+    let col_5 = document.createElement('div')
+    col_5.className = 'col-5'
+    let div_col5 = document.createElement('div')
+    div_col5.className = 'd-flex ms-auto me-auto mt-4 justify-content-center'
+    let p = document.createElement('p')
+    p.className = 'amount'
+    let col_4 = document.createElement('div')
+    col_4.className = 'col-4'
+    let h6 = document.createElement('h6')
+    h6.className = 'mt-4 price fw-normal text-center'
+    col_3.appendChild(img)
+    div_col5.appendChild(p)
+    col_5.appendChild(div_col5)
+    col_4.appendChild(h6)
+    row.appendChild(title)
+    row.appendChild(col_3)
+    row.appendChild(col_5)
+    row.appendChild(col_4)
+    card_body.appendChild(row)
+    test1.appendChild(card_body)
+}
+
+cartItem()
