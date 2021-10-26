@@ -1,3 +1,5 @@
+import { isLogin, getProductById, setKeranjang } from "/js/helpers.js";
+
 function wcqib_refresh_quantity_increments() {
   jQuery("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").each(function (a, b) {
     var c = jQuery(b);
@@ -29,3 +31,45 @@ String.prototype.getDecimals ||
       jQuery(this).is(".plus") ? (c && b >= c ? a.val(c) : a.val((b + parseFloat(e)).toFixed(e.getDecimals()))) : d && b <= d ? a.val(d) : b > 0 && a.val((b - parseFloat(e)).toFixed(e.getDecimals())),
       a.trigger("change");
   });
+
+
+// GET PARAMETER FROM URL
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString);
+const params = urlParams.get('data-id'); // tempat menampung parameter yang ada
+
+// get ELEMENT HTML
+const productNameEl = document.getElementById("judul")
+const productImageEl = document.getElementById("product-image")
+const productDescEl = document.getElementById("desc")
+const productHargaEl = document.getElementById("product-harga")
+const productStockEl = document.getElementById("product-stock")
+const beliBtnEl = document.getElementById("beli-sekarang")
+
+const renderProduct = async () => {
+  const product = await getProductById(params)
+  
+  productNameEl.textContent = product.name
+  productImageEl.setAttribute("src", product.img)
+  productDescEl.textContent = product.desc
+  productHargaEl.textContent = `Rp ${new Intl.NumberFormat("id-ID").format(product.harga)}`
+  productStockEl.append(product.stock)
+
+  beliBtnEl.addEventListener('click', () => {
+    if(!isLogin()) {
+      modalEl.toggle()
+    } else {
+      let newKeranjang = {
+        productId: Number(product.id),
+        qty: Number(document.querySelector("input.qty").value)
+      }
+
+      setKeranjang(newKeranjang)
+
+      document.location.href = "/keranjang/keranjang.html"
+      
+    }
+  })
+}
+
+renderProduct()

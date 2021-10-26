@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deskripsi</title>
+  <!-- JAVASCRIPT -->
+  <script data-require="jquery@3.1.1" data-semver="3.1.1"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="kategori.js" />
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
@@ -14,6 +19,7 @@
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
   <!-- CSS -->
+  <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/deskripsi barang/deskripsi.css" />
 
 
@@ -36,7 +42,7 @@
               <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="kategori/kategori.html">Produk</a>
+              <a class="nav-link active" aria-current="page" href="/kategori/kategori.html">Produk</a>
             </li>
           </ul>
 
@@ -72,54 +78,60 @@
       </div>
     </nav>
   </header>
-  <br></br>
-
-
-
+  
 
   <!-- SECTION KETERANGAN -->
-  <h1 class="judul">Apel Merah</h1>
-  <div class="col-md-12 figure-image">
-    <div class="row">
-      <div class="col-md-6">
-        <figure class="figure">
-          <img
-            src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-            class="figure-img img-fluid rounded" alt="...">
-          <figcaption class="figure-caption">
+  <div class="container my-5 pb-5">
+    <div>
+      <button onclick="window.history.back()" class="btn btn-sm btn-secondary">Kembali</button>
+    </div>
+    <h1 class="judul pt-0 pb-3 mt-1" id="judul"></h1>
+    <!-- <div class="col-md-12 "> -->
+      <div class="row gx-md-5 justify-content-center">
+        <div class="col-md-6">
+          <figure class="figure" style="max-width: inherit;">
+            <img
+              src=""
+              class="figure-img img-fluid rounded" alt="..." id="product-image">
 
-            <!-- ICON -->
-            <i class="fas fa-heart fa-2x"></i>
-            <i class="far fa-comment fa-2x"></i>
-            <span class="fa fa-star checked fa-2x"> 4.9</span>
-          </figcaption>
-      </div>
-      <div class=" keterangan col-md-4">
-        <h2>Keterangan </h2>
-        <p id="desc">Apel merah menyimpan banyak antosianin hingga lima kali lebih banyak dari apel hijau seperti Granny
-          Smiths. Antosianin merupakan pigmen yang menjadikan kulit apel berwarna lebih gelap. Pigmen antosianin ini
-          menawarkan manfaat bagi kesehatan jantung dan menurunkan kolesterol.</p>
-        <br></br>
-        <h2>Harga</h2>
-        <p>Rp. 37.000 / kg</p>
-        <!-- JUMLAH -->
-        <div class="quantity">
-          <h2>Jumlah</h2>
-          <div class="quantity buttons_added">
-            <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity"
-              value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button"
-              value="+" class="plus">Tersisa 10kg
+            <figcaption class="figure-caption mt-2">
+
+              <!-- ICON -->
+              <i class="fas fa-heart fa-2x"></i>
+              <i class="far fa-comment fa-2x"></i>
+              <span class="fa fa-star checked fa-2x float-end"> 4.9</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="keterangan col-md-6 col-lg-5">
+          <div>
+            <h2>Keterangan </h2>
+            <p id="desc"></p>
+          </div>
+
+          <div class="mt-4">
+            <h2>Harga</h2>
+            <p id="product-harga"></p>
+          </div>
+          
+          <!-- JUMLAH -->
+          <div class="mt-4">
+            <h2>Jumlah</h2>
+            <div class="quantity buttons_added">
+              <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity"
+                value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button"
+                value="+" class="plus">
+                <span class="fs-5 ms-4" id="product-stock">Tersisa </span>
+            </div>
+          </div>
+
+          <!-- Button beli -->
+          <div class="d-grid mt-5 w-75">
+            <button class="btn btn-success" type="button" id="beli-sekarang">Beli Sekarang</button>
           </div>
         </div>
-        </figure>
-
-        <!-- Button beli -->
-        <div class="button-beli d-grid gap-2">
-          <button class="btn btn-success" type="button">Beli Sekarang</button>
-        </div>
       </div>
-    </div>
-  </div>
+    <!-- </div> -->
   </div>
 
   <!-- FOOTER -->
@@ -147,13 +159,47 @@
     </div>
   </footer>
 
+    <!-- Modal Harus Login -->
+    <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <div class="modal-body p-4 text-center">
+            <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+            <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <a href="./login.html" class="btn btn-sm btn-success">Masuk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Logout -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body text-center py-4">
+          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+          <h3>Anda yakin ingin keluar?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
   <!-- JAVASCRIPT -->
-  <script src="/deskripsi barang/deskripsi.js"></script>
+  <script type="module" src="/deskripsi barang/deskripsi.js"></script>
   <script type="module" src="/js/checklogin.js"></script>
 </body>
 

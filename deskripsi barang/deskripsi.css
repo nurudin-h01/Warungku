@@ -20,10 +20,10 @@ span {
   color: orange;
 }
 
-.fa {
+/* .fa {
   margin-left: 730px;
   padding: 10px;
-}
+} */
 p {
   font-size: x-large;
 }
@@ -31,10 +31,6 @@ p {
 #desc {
   font-size: 24px;
   text-align: relative;
-}
-
-.quantity {
-  margin-top: 40px;
 }
 
 /* -- box jumlah -- */
@@ -98,13 +94,6 @@ p {
 .quantity.buttons_added .minus:focus,
 .quantity.buttons_added .plus:focus {
   outline: none;
-}
-
-.button-beli {
-  align: left;
-  margin: 50px;
-  padding: 40px;
-  align: left;
 }
 
 .keterangan {

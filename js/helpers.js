@@ -53,7 +53,7 @@ export const isLogin = () => {
 // LOGOUT
 export const logout = () => {
   localStorage.removeItem('login')
-  location.reload()
+  location.href = window.location.origin
 }
 
 
@@ -76,6 +76,67 @@ export const getUser = () => {
   return user
 }
 
+// GET KERANJANG DATA
+export const getKeranjang = () => {
+  let keranjang = getLocalStorage("keranjang")
+  keranjang = JSON.parse(keranjang)
+  return keranjang
+}
+
+export const setKeranjang = (products) => {
+  let allKeranjang = getKeranjang()
+  let keranjangValue;
+  if(allKeranjang) {
+    let productIndex = allKeranjang.findIndex(element => element.productId === products.productId)
+    if(productIndex >= 0) {
+      allKeranjang[productIndex].qty += products.qty
+    } else {
+      allKeranjang.push(products)
+    }
+    keranjangValue = allKeranjang
+  } else {
+    keranjangValue = [products]
+  }
+
+  setLocalStorage("keranjang", JSON.stringify(keranjangValue))
+}
+
+// TEMPORARY DATA AFTER KERANJANG CHOOSE
+export const getTempData = () => {
+  let tempData = getLocalStorage("tempData")
+  tempData = JSON.parse(tempData)
+  return tempData
+}
+
+export const setTempData = (data) => {
+  let allTempData = getTempData()
+  let tempDataValue;
+  
+  if(allTempData) {
+    let productIndex = allTempData.findIndex(element => element.productId === data.productId)
+    
+    if(productIndex >= 0) {
+      allTempData[productIndex].qty = data.qty
+    } else {
+      allTempData.push(data)
+    }
+    tempDataValue = allTempData
+  } else {
+    tempDataValue = [data]
+  }
+  
+  setLocalStorage("tempData", JSON.stringify(tempDataValue))
+}
+
+export const delTempData = (id) => {
+  let allTempData = getTempData()
+  let productIndex = allTempData.findIndex(element => element.productId === id)
+  
+  allTempData.slice(productIndex, 1)
+  
+  setLocalStorage("tempData", JSON.stringify(allTempData))
+}
+
 // FETCH API
 export const getProducts = async () => {
   // EDIT HERE
@@ -84,3 +145,10 @@ export const getProducts = async () => {
   let data = await response.json()
   return data
 };
+
+export const getProductById = async (productId) => {
+  const url = `https://6172fc04110a740017222f15.mockapi.io/products/${productId}`
+  let response = await fetch(url)
+  let data = await response.json()
+  return data
+}

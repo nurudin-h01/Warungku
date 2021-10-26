@@ -5,26 +5,16 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <!-- JAVASCRIPT -->
-  <script data-require="jquery@3.1.1" data-semver="3.1.1"
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  
+  <title>WarungMama - Akun</title>
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <!-- Fontawesome -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/index.css" />
-  <link rel="stylesheet" href="kategori.css" />
-
-  <style>
-
-  </style>
-
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
@@ -33,7 +23,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
+        <a class="navbar-brand text-success fw-bold w-50" href="index.html">WarungMama</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,10 +31,10 @@
         <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
+              <a class="nav-link" aria-current="page" href="index.html">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="kategori/kategori.html">Produk</a>
+              <a class="nav-link" aria-current="page" href="kategori/kategori.html">Produk</a>
             </li>
           </ul>
 
@@ -53,16 +43,14 @@
 
             <div class="d-none" id="account-menu">
               <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
-                      class="fas fa-shopping-bag"></i></a></li>
+                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i class="fas fa-shopping-bag"></i></a></li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
-                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
-                        Riwayat Belanja</a>
+                    <li><a class="dropdown-item active" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i> Riwayat Belanja</a>
                     </li>
 
                     <li>
@@ -98,64 +86,44 @@
     </div>
   </div>
 
-  <br></br>
-  <!-- KATEGORI -->
-
-  <div class="judul-kategori" style="text-align: center" id="sayuran">
-    <h1 class="heading">Buah dan Sayur</h1>
-  </div>
-
-  <!-- CARD -->
-
-  <div class="container my-5">
-    <div class="row text-center gy-3 justify-content-center justify-content-md-start" id="kategori-sayuran">
-      
-    </div>
-  </div>
-
-  <div class="judul-kategori" style="text-align: center" id="sembako">
-    <h1 class="heading">Sembako</h1>
-  </div>
-  <!-- KATEGORI SEMBAKO -->
-
-  <div class="container my-5">
-    <div class="row text-center gy-3 justify-content-center justify-content-md-start" id="kategori-sembako">
-      
-    </div>
-  </div>
-
-  <!-- Modal Harus Login -->
-  <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-body p-4 text-center">
-          <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
-          <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <a href="/login.html" class="btn btn-sm btn-success">Masuk</a>
+  <!-- SECTION ACCOUNT -->
+  <section class="container p-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-7 col-md-10">
+        <div class="card">
+          <div class="card-header">
+            Informasi Akun
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-5 col-md-5 col-xl-6">
+                <img src="/img/Eco shopping-pana.png" class="img-fluid" alt="">
+              </div>
+              <div class="col-7 col-md-7 col-xl-6">
+                <h2 class="card-title" id="name"></h2>
+                <p class="card-text fs-5 text-secondary" id="email"></p>
+                <a href="/kategori/kategori.html" class="btn btn-success mt-3 btn-sm">Belanja Sekarang</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
 
   <!-- FOOTER -->
   <footer class="text-muted py-5 bg-light">
     <div class="container">
       <div class="row justify-content-around">
         <div class="col-lg-4 col-md-5 col-sm-12">
-          <img src="/img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
+          <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid">
         </div>
         <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
           <h4 class="text-success">WarungMama</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur
-            tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet
-            quod reiciendis
-            mollitia.
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur
+            tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod
+            reiciendis mollitia.</p>
         </div>
       </div>
       <div class="row mt-5 text-center">
@@ -166,22 +134,6 @@
     </div>
   </footer>
 
-  <!-- Modal Konfirmasi Logout -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-body text-center py-4">
-          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
-          <h3>Anda yakin ingin keluar?</h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -189,8 +141,24 @@
     crossorigin="anonymous"></script>
 
   <!-- JAVASCRIPT -->
-  <script type="module" src="/kategori/kategori.js"></script>
   <script type="module" src="/js/checklogin.js"></script>
+  <script type="module">
+    import { isLogin, getUser } from "/js/helpers.js"
+
+    window.onload = () => {
+      if(!isLogin()) {
+        location.href = "login.html"
+      }
+    }
+
+    let user = getUser()
+    let nameEl = document.getElementById("name")
+    let emailEl = document.getElementById("email")
+
+    nameEl.textContent = user.name
+    emailEl.textContent = user.email
+
+  </script>
 </body>
 
 </html>
