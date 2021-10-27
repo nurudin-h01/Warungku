@@ -308,9 +308,9 @@ elReview.addEventListener('click', function() {
 
 
 // fungsi memanggil toast dan set local
-document.querySelector("#basicToastBtn").onclick = function() {
-    let modal = document.querySelector('.toast-container')
-    modal.classList.remove('d-none')
+let btn_toast =  document.querySelector("#basicToastBtn")
+btnToast.addEventListener('click', function(){
+    console.log('test')
     transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
@@ -334,7 +334,10 @@ document.querySelector("#basicToastBtn").onclick = function() {
         delKeranjangData(product)
         
     }
-}
+
+})
+
+
 
 
 
