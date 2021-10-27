@@ -1,10 +1,11 @@
 let history = localStorage.getItem('History')
 history = JSON.parse(history)
 let user = localStorage.getItem("login")
-let userHistory = history.filter(value => value.email === user)
-console.log(userHistory);
-
-if(userHistory < 1) {
+let userHistory = undefined;
+if(userHistory !== null) {
+    userHistory = history.filter(value => value.email === user)
+}
+if(history==null || userHistory < 1) {
     location.href = "../history1.html"
 }
 
