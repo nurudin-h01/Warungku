@@ -103,7 +103,13 @@ const renderproducts = async () => {
 
         setKeranjang(newKeranjang)
 
+        let toast = document.querySelector(".toast-container")
+        toast.classList.remove("d-none")
+        new bootstrap.Toast(document.querySelector('#basicToast')).show();
+
         // console.log(getKeranjang());
+        let badgeEl = document.getElementById("isiKeranjang")
+        badgeEl.classList.remove("d-none")
         
       }
     })
