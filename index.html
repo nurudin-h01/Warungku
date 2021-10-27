@@ -1,225 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <!-- Fontawesome -->
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/index.css">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WarungMama</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+</head>
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand text-success fw-bold w-50" href="#">Warungku</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Produk</a>
-              </li>
-            </ul>
-  
-            <div class="nav navbar-nav ms-auto w-100 justify-content-end">
-              <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
-              
-              <div class="d-none" id="account-menu">
-                <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-                  <li class="nav-item"><a class="nav-link fs-3" href="#"><i class="fas fa-shopping-bag"></i></a></li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
-
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Wishlist</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fas fa-clipboard-list me-2"></i> Riwayat Belanja</a></li>
-
-                      <li><hr class="dropdown-divider"></li>
-                      <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-  
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Modal Konfirmasi Logout -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          
-          <div class="modal-body text-center py-4">
-            <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
-            <h3>Anda yakin ingin keluar?</h3>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SECTION INTRO -->
-    <section>
-      <div class="container py-6">
-        <div class="row justify-content-between align-items-center g-md-5 g-0">
-          <div class="col-lg-6 col-md-6 col-12">
-            <h1 class="text-bolder mb-3">Dapatkan Kebutuhan Sehari-hari Anda di Sini</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet impedit porro, repellendus dolorum est sit sunt veniam culpa dolorem ratione. Dolorum facere incidunt dolores excepturi est beatae ex distinctio. Incidunt.</p>
-          </div>
-
-          <div class="col-lg-6 col-md-6 col-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80" class="d-block w-100" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                  <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80" class="d-block w-100" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                  <img src="https://images.unsplash.com/photo-1566824099147-bef027d3a333?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Third slide">
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION KATEGORI PRODUK -->
-    <section class="bg-light">
-      <div class="container py-6">
-        <h3 class="text-center">Belanja Sesuai Kebutuhan Anda</h3>
-        <div class="row justify-content-center mt-5 text-center gx-md-5 gx-0 gy-md-0 gy-5">
-          <div class="col-lg-4 col-md-5 col-10">
-            <div class="card p-2">
-              <div class="card-body">
-                <h5 class="card-title text-center">Bahan Makanan</h5>
-                <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" class="card-img-top rounded-3 my-3" alt="Vegetables">
-                <a class="btn btn-success belanja">Belanja</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-5 col-10">
-            <div class="card p-2">
-              <div class="card-body text-center">
-                <h5 class="card-title text-center">Sembako</h5>
-                <img src="https://images.unsplash.com/photo-1565061828011-282424b9ab40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80" class="card-img-top rounded-3 my-3" alt="Groceries">
-                <a class="btn btn-success belanja">Belanja</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- SECTION PRODUK TERBARU -->
-    <section>
-      <div class="container py-5">
-        <h3 class="text-center">Produk Terbaru</h3>
-        <div class="row justify-content-center mt-5" id="newProductList">
-          
-        </div>
-      </div>
-    </section>
-
-     <!-- Modal Harus Login -->
-     <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          
-          <div class="modal-body p-4 text-center">
-            <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
-            <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <a href="./login.html" class="btn btn-sm btn-success">Masuk</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="text-muted py-5 bg-light">
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <div class="row justify-content-around">
-          <div class="col-lg-4 col-md-5 col-sm-12">
-            <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid">
+        <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="kategori/kategori.html">Produk</a>
+            </li>
+          </ul>
+
+          <div class="nav navbar-nav ms-auto w-100 justify-content-end">
+            <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+            <div class="d-none" id="account-menu">
+              <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
+                      class="fas fa-shopping-bag"></i></a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/akun.html"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
+                        Riwayat Belanja</a>
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
-            <h4 class="text-success">Warungku</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod reiciendis mollitia.</p>
-          </div>
+
         </div>
-        <div class="row mt-5 text-center">
-          <div class="col">
-            <h6>Created By Kelompok 2  | All Right Reserved</h6>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Modal Konfirmasi Logout -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body text-center py-4">
+          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+          <h3>Anda yakin ingin keluar?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION INTRO -->
+  <section>
+    <div class="container py-6">
+      <div class="row justify-content-between align-items-center g-md-5 g-0">
+        <div class="col-lg-6 col-md-6 col-12 px-3 ps-md-4">
+          <h1 class="text-bolder mb-3">Dapatkan Kebutuhan Sehari-hari Anda di Sini</h1>
+          <p>Tersedia berbagai macam kebutuhan pokok sehari-hari mulai dari sayuran, buah-buahan dan sembako. Produk yang disediakan dapat dijamin kualitasnya dan masih segar. Anda tidak perlu repot-repot berbelanja ke pasar anda dapat berbelanja di sini mulai pukul <span class="text-success fw-bold">5.00 - 22.00 WIB</span></p>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-12">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80"
+                  class="d-block w-100" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80"
+                  class="d-block w-100" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1566824099147-bef027d3a333?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  class="d-block w-100" alt="Third slide">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
+
+  <!-- SECTION KATEGORI PRODUK -->
+  <section class="bg-light">
+    <div class="container py-6">
+      <h3 class="text-center">Belanja Sesuai Kebutuhan Anda</h3>
+      <div class="row justify-content-center mt-5 text-center gx-md-5 gx-0 gy-md-0 gy-5">
+        <div class="col-lg-4 col-md-5 col-10">
+          <div class="card p-2">
+            <div class="card-body">
+              <h5 class="card-title text-center">Bahan Makanan</h5>
+              <img
+                src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+                class="card-img-top rounded-3 my-3" alt="Vegetables">
+              <a class="btn btn-success belanja" data-kategori="sayuran">Belanja</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-10">
+          <div class="card p-2">
+            <div class="card-body text-center">
+              <h5 class="card-title text-center">Sembako</h5>
+              <img
+                src="https://images.unsplash.com/photo-1565061828011-282424b9ab40?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1175&q=80"
+                class="card-img-top rounded-3 my-3" alt="Groceries">
+              <a class="btn btn-success belanja" data-kategori="sembako">Belanja</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION PRODUK TERBARU -->
+  <section>
+    <div class="container py-5">
+      <h3 class="text-center">Produk Terbaru</h3>
+      <div class="row mt-5 gy-4 gy-lg-0 justify-content-center justify-content-md-start" id="newProductList">
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Harus Login -->
+  <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body p-4 text-center">
+          <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+          <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <a href="./login.html" class="btn btn-sm btn-success">Masuk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-muted py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-5 col-sm-12">
+          <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid">
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
+          <h4 class="text-success mb-3">WarungMama</h4>
+          <p>WarungMama merupakan sebuah website yang menyediakan berbagai produk kebutuhan pokok berupa bahan makanan sepert sayur-sayuran dan juga sembako yang dapat dibeli secara online. WarungMama menyediakan dua pilihan pengambilan barang, anda dapat mengambil barang sendiri langsung ke lokasi WarungMama atau memilih pengantaran yang akan diantarkan oleh kurir dari WarungMama.</p>
+          <p>WarungMama terbuka mulai pukul <span class="fw-bold">5.00 WIB - 22.00 WIB</span></p>
+        </div>
+      </div>
+      <div class="row mt-5 text-center">
+        <div class="col">
+          <h6>Created By Kelompok 2 | All Right Reserved</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
-    <!-- Bootstrap bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-- JAVASCRIPT -->
-    <script type="module" src="./js/index.js"></script>
-  </body>
+  <!-- JAVASCRIPT -->
+  <script type="module" src="./js/index.js"></script>
+</body>
+
 </html>

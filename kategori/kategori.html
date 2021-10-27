@@ -1,364 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- JAVASCRIPT -->
-    <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="kategori.js" />
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="kategori.css"/>
 
-        <style>
-            
-        </style>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- JAVASCRIPT -->
+  <script data-require="jquery@3.1.1" data-semver="3.1.1"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  </head>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/index.css" />
+  <link rel="stylesheet" href="kategori.css" />
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand text-success fw-bold w-50" href="#">Warung Mama</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Produk</a>
-              </li>
-            </ul>
+  <style>
 
-            <div class="nav navbar-nav ms-auto w-100 justify-content-end">
-              <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br></br>
-    <!-- KATEGORI -->
-    
-    <div class="judul-kategori" style="text-align: center">
-        <h1 class="heading">Buah dan Sayur</h1>
-    </div>
+  </style>
 
-    <!-- CARD -->
+</head>
 
-    <div class="container my-5">
-        <div class="row text-center g-3">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" height="200px" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Apel Merah</h5>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 37.000</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" height="200px" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Bayam</h5>
-                  <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 2000</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" height="200px" class="card-img-top" alt="garlic">
-                <div class="card-body">
-                  <h5 class="card-title">Bawang Putih</h5>
-                  <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 12000</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-        </div>
-        <br> </br>
-        <div class="container my-5">
-            <div class="row text-center g-3">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" height="200px" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Bawang Merah</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 25000 / Kg</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                      </div>
-                      <br></br>
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=871&q=80" height="200px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Paprika</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 35.000 / kg</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                      </div>
-                      <br></br>
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://images.unsplash.com/photo-1526346698789-22fd84314424?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" height="200px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Cabai Rawit</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 35.000 / kg</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                      </div>
-                      <br></br>
-                        <!-- BUTTON Tambah ke Keranjang -->
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-            </div>
-      </div>
-      <br></br>
-      <br></br>
-      <br></br>
-
-      <div class="judul-kategori" style="text-align: center">
-        <h1 class="heading">Sembako</h1>
-    </div>
-      <!-- KATEGORI SEMBAKO -->
-
-      <div class="container my-5">
-        <div class="row text-center g-3">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://cf.shopee.co.id/file/79ecb4e492d7edc839ae8d5f9d6270a9" height="200px" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Gula Pasir</h5>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 24.000/kg</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://cf.shopee.co.id/file/a241798f4896b1b152906a606c7f615b" height="200px" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Minyak Goreng</h5>
-                  <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 16.000/kg</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://s3.bukalapak.com/img/3021889406/large/BERAS_PANDAN_WANGI_scaled.jpg" height="200px" class="card-img-top" alt="garlic">
-                <div class="card-body">
-                  <h5 class="card-title">Beras</h5>
-                  <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                  <p class="card-text">Rp. 12000 / kg</p>
-                  <!-- quantity -->
-                  <div class="quantity buttons_added">
-                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                  </div>
-                  <br></br>
-                  <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                </div>
-              </div>
-          </div>
-        </div>
-        <br> </br>
-        <div class="container my-5">
-            <div class="row text-center g-3">
-              <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://asset.kompas.com/crops/riBWS8usSj1UTPDRzi-xt2yZI48=/0x7:740x500/780x390/data/photo/2020/11/13/5fae4aae98da3.jpg" height="200px" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Telur Ayam</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 24000 / Kg</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ Kg
-                      </div>
-                      <br></br>
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://secangkirsemangat.id//storage/product-products/May2020/f5YAY3Dyih582BBKgArG.jpg" height="200px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Kopi Sachet</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 1000 / pcs</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ pcs
-                      </div>
-                      <br></br>
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://cdn-2.tstatic.net/tribunnews/foto/bank/images/teh-celup-sariwangi_20181018_114114.jpg" height="200px" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Teh Kantong</h5>
-                      <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                      <p class="card-text">Rp. 5.500 / pcs</p>
-                      <!-- quantity -->
-                      <div class="quantity buttons_added">
-                        <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">/ pcs
-                      </div>
-                      <br></br>
-                        <!-- BUTTON Tambah ke Keranjang -->
-                      <a href="#" class="btn btn-success">Tambah ke Keranjang</a>
-                    </div>
-                  </div>
-              </div>
-            </div>
-      </div>
-
-
-    
-
-    <!-- SECTION -->
-    <section class="min-vh-100"></section>
-
-    <!-- FOOTER -->
-    <footer class="text-muted py-5 bg-light">
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <div class="row justify-content-around">
-          <div class="col-lg-4 col-md-5 col-sm-12">
-            <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
+        <a class="navbar-brand text-success fw-bold w-50" href="/index.html">WarungMama</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Produk</a>
+            </li>
+          </ul>
+
+          <div class="nav navbar-nav ms-auto w-100 justify-content-end">
+            <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+            <div class="d-none" id="account-menu">
+              <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
+                      class="fas fa-shopping-bag"></i></a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/akun.html"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
+                        Riwayat Belanja</a>
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
-            <h4 class="text-success">Warungku</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod reiciendis
-              mollitia.
-            </p>
-          </div>
-        </div>
-        <div class="row mt-5 text-center">
-          <div class="col">
-            <h6>Created By Kelompok 2 | All Right Reserved</h6>
-          </div>
+
         </div>
       </div>
-    </footer>
+    </nav>
+  </header>
 
-    <!-- Bootstrap bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Modal Konfirmasi Logout -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
-    <!-- JAVASCRIPT -->
-    <script src="/kategori/kategori.js"></script>
-  </body>
+        <div class="modal-body text-center py-4">
+          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+          <h3>Anda yakin ingin keluar?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br></br>
+  <!-- KATEGORI -->
+
+  <div class="judul-kategori" style="text-align: center" id="sayuran">
+    <h1 class="heading">Buah dan Sayur</h1>
+  </div>
+
+  <!-- CARD -->
+
+  <div class="container my-5">
+    <div class="row text-center gy-3 justify-content-center justify-content-md-start" id="kategori-sayuran">
+
+    </div>
+  </div>
+
+  <div class="judul-kategori" style="text-align: center" id="sembako">
+    <h1 class="heading">Sembako</h1>
+  </div>
+  <!-- KATEGORI SEMBAKO -->
+
+  <div class="container my-5">
+    <div class="row text-center gy-3 justify-content-center justify-content-md-start" id="kategori-sembako">
+
+    </div>
+  </div>
+
+  <!-- Modal Harus Login -->
+  <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body p-4 text-center">
+          <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+          <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <a href="/login.html" class="btn btn-sm btn-success">Masuk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-muted py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-5 col-sm-12">
+          <img src="/img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
+          <h4 class="text-success">WarungMama</h4>
+          <p>WarungMama merupakan sebuah website yang menyediakan berbagai produk kebutuhan pokok berupa bahan makanan sepert sayur-sayuran dan juga sembako yang dapat dibeli secara online. WarungMama menyediakan dua pilihan pengambilan barang, anda dapat mengambil barang sendiri langsung ke lokasi WarungMama atau memilih pengantaran yang akan diantarkan oleh kurir dari WarungMama.</p>
+          <p>WarungMama terbuka mulai pukul <span class="fw-bold">5.00 WIB - 22.00 WIB</span></p>
+        </div>
+      </div>
+      <div class="row mt-5 text-center">
+        <div class="col">
+          <h6>Created By Kelompok 2 | All Right Reserved</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Konfirmasi Logout -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body text-center py-4">
+          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+          <h3>Anda yakin ingin keluar?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- JAVASCRIPT -->
+  <script type="module" src="/kategori/kategori.js"></script>
+  <script type="module" src="/js/checklogin.js"></script>
+</body>
+
 </html>
