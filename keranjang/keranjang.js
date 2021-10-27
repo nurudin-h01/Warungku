@@ -1,4 +1,11 @@
-import { getKeranjang, getProducts, getProductById, delTempData, setTempData } from "../js/helpers.js";
+import { isLogin, getKeranjang, getProducts, getProductById, delTempData, setTempData, updateKeranjang } from "../js/helpers.js";
+
+// check login first
+window.onload = () => {
+  if(!isLogin()) {
+    location.href = "/login.html"
+  }
+}
 
 function wcqib_refresh_quantity_increments() {
   jQuery("div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)").each(function (a, b) {
@@ -34,6 +41,9 @@ String.prototype.getDecimals ||
 
 
 const tblProductListEl = document.getElementById("tbl-product-list")
+const modalEl = new bootstrap.Modal(document.getElementById('requiredToChoose'), {
+  keyboard: false
+})
 
 const createProductEl = (product, count, qty) => {
   const tblRow = document.createElement("tr")
@@ -47,6 +57,7 @@ const createProductEl = (product, count, qty) => {
         <input type="button" value="-" class="minus" /><input type="number" step="1" min="1" max=""
           name="quantity" value="${qty}" title="Qty" class="input-text qty text" size="4" pattern=""
           inputmode="" /><input type="button" value="+" class="plus" />
+      </div>
     </td>
     <td>Rp. ${new Intl.NumberFormat("id-ID").format(product.harga*qty)}</td>
     <td>
@@ -72,30 +83,87 @@ const renderKeranjang = async () => {
     createProductEl(keranjang, count, row.qty)
   })
 
+  let minusEl = tblProductListEl.querySelectorAll("input.minus")
+  let plusEl = tblProductListEl.querySelectorAll("input.plus")
+  let qtyEl = tblProductListEl.querySelectorAll("input.qty")
+
+  minusEl.forEach(element => eventListenerMinus(element))
+  plusEl.forEach(element => eventListenerPlus(element))
+  qtyEl.forEach(element => eventListenerQty(element))
+  
+
   // let allQtyEl = document.querySelectorAll(".qty")
   // allQtyEl.forEach(qtyEl => addEventClickPlus(qtyEl))
   let beliSekarang = document.getElementById("beli-sekarang")
   beliSekarang.addEventListener('click', () => {
     let allCheckbox = document.querySelectorAll(".chooseProduct")
-    productToBuy(allCheckbox)
+    let isSuccess = productToBuy(allCheckbox)
 
-    location.href = "/pembayaran/"
+    if(isSuccess) {
+      location.href = "/pembayaran/"
+    } else {
+      modalEl.toggle()
+    }
+
   })
 
   // allCheckbox.forEach(checkbox => addCheckboxEvent(checkbox))
   
 }
 
+function eventListenerPlus(element) {
+  element.addEventListener('click', () => {
+    let data = {
+      productId: Number(element.parentElement.parentElement.parentElement.dataset.id),
+      qty: Number(element.previousSibling.value) + 1
+    }
+    
+    updateKeranjang(data)
+  });
+}
+
+function eventListenerMinus(element) {
+  element.addEventListener('click', () => {
+    let qty = Number(element.nextSibling.value)
+    qty > 1? qty-=1:qty
+    let data = {
+      productId: Number(element.parentElement.parentElement.parentElement.dataset.id),
+      qty: qty
+    }
+    updateKeranjang(data)
+  });
+}
+
+function eventListenerQty(element) {
+  element.addEventListener('blur', () => {
+    let data = {
+      productId: Number(element.parentElement.parentElement.parentElement.dataset.id),
+      qty: Number(element.value)
+    }
+    
+    updateKeranjang(data)
+  });
+}
+
 const productToBuy = (allCheckbox) => {
+  let tempData = []
   allCheckbox.forEach(checkbox => {
     if(checkbox.checked === true) {
       let data = {
-        productId: checkbox.parentElement.parentElement.parentElement.dataset.id,
-        qty: checkbox.parentElement.parentElement.parentElement.querySelector(".qty").value
+        productId: Number(checkbox.parentElement.parentElement.parentElement.dataset.id),
+        qty: Number(checkbox.parentElement.parentElement.parentElement.querySelector(".qty").value)
       }
-      setTempData(data)
+      tempData.push(data)
     }
   })
+
+  if(tempData.length > 0) {
+    setTempData(tempData)
+    return true
+  } else {
+    return false
+  }
+  
 }
 
 // const addCheckboxEvent = (checkbox) => {

@@ -55,7 +55,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/akun.html"><i class="fas fa-user me-2"></i> Akun</a></li>
                     <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
                         Riwayat Belanja</a>
                     </li>
@@ -118,6 +118,21 @@
     </a>
   </div>
 
+  <!-- MODAL HARUS MEMILIH SETIDAKNYA SATU BARANG -->
+  <div class="modal fade" id="requiredToChoose" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body p-4 text-center">
+          <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+          <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus memilih setidaknya satu produk untuk diproses</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="text-muted py-5 bg-light">
@@ -128,12 +143,8 @@
         </div>
         <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
           <h4 class="text-success">WarungMama</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur
-            tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod
-            reiciendis
-            mollitia.
-          </p>
+          <p>WarungMama merupakan sebuah website yang menyediakan berbagai produk kebutuhan pokok berupa bahan makanan sepert sayur-sayuran dan juga sembako yang dapat dibeli secara online. WarungMama menyediakan dua pilihan pengambilan barang, anda dapat mengambil barang sendiri langsung ke lokasi WarungMama atau memilih pengantaran yang akan diantarkan oleh kurir dari WarungMama.</p>
+          <p>WarungMama terbuka mulai pukul <span class="fw-bold">5.00 WIB - 22.00 WIB</span></p>
         </div>
       </div>
       <div class="row mt-5 text-center">
@@ -150,8 +161,8 @@
     crossorigin="anonymous"></script>
 
   <!-- JAVASCRIPT -->
-  <script type="module" src="keranjang.js"></script>
   <script type="module" src="/js/checklogin.js"></script>
+  <script type="module" src="keranjang.js"></script>
 </body>
 
 </html>
