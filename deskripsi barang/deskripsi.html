@@ -85,9 +85,9 @@
     <div>
       <button onclick="window.history.back()" class="btn btn-sm btn-secondary">Kembali</button>
     </div>
-    <h1 class="judul pt-0 pb-3 mt-1" id="judul"></h1>
+    <h1 class="judul pt-0 pb-3 mt-5 px-0 mx-0" id="judul"></h1>
     <!-- <div class="col-md-12 "> -->
-      <div class="row gx-md-5 justify-content-center">
+      <div class="row gx-md-5 justify-content-center d-none" id="deskripsiProduk">
         <div class="col-md-6">
           <figure class="figure" style="max-width: inherit;">
             <img
@@ -131,8 +131,20 @@
           </div>
         </div>
       </div>
+
+      <div class="row d-none" id="notFound">
+        <h3 class="text-center">Maaf, Produk Tidak Ditemukan</h3>
+      </div>
     <!-- </div> -->
   </div>
+
+  <!-- REVIEW SEECTION -->
+  <section class="container pb-5 d-none" id="testimoni-section">
+    <h3 class="text-center">Testimoni</h3>
+    <div class="row mt-4 gy-3" id="testimoni">
+      
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="text-muted py-5 bg-light">
@@ -143,12 +155,8 @@
         </div>
         <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
           <h4 class="text-success">WarungMama</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur
-            tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod
-            reiciendis
-            mollitia.
-          </p>
+          <p>WarungMama merupakan sebuah website yang menyediakan berbagai produk kebutuhan pokok berupa bahan makanan sepert sayur-sayuran dan juga sembako yang dapat dibeli secara online. WarungMama menyediakan dua pilihan pengambilan barang, anda dapat mengambil barang sendiri langsung ke lokasi WarungMama atau memilih pengantaran yang akan diantarkan oleh kurir dari WarungMama.</p>
+          <p>WarungMama terbuka mulai pukul <span class="fw-bold">5.00 WIB - 22.00 WIB</span></p>
         </div>
       </div>
       <div class="row mt-5 text-center">
@@ -170,7 +178,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-            <a href="./login.html" class="btn btn-sm btn-success">Masuk</a>
+            <a href="/login.html" class="btn btn-sm btn-success">Masuk</a>
           </div>
         </div>
       </div>

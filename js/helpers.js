@@ -161,3 +161,11 @@ export const getProductById = async (productId) => {
   let data = await response.json()
   return data
 }
+
+export const getTestimoniByPordId = async(productId) => {
+  const url = 'https://6172fc04110a740017222f15.mockapi.io/userReview'
+  let response = await fetch(url)
+  let data = await response.json()
+  let testimoni = data.filter(value => value.prodID == productId)
+  return testimoni
+}
