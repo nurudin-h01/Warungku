@@ -100,14 +100,6 @@ elAlamat.addEventListener('blur', function() {
     }
 })
 
-// perhitungan total harga load awal
-// for (let i = 0; i < price2.length; i++) {
-//     let total = price2[i].textContent * amount[i].textContent
-//     temp_total += total
-// }
-// let subtotal = document.querySelector('.subtotal')
-// subtotal.innerHTML = temp_total
-
 
 // fungsi untuk submit page 1
 elBtnpage1.addEventListener('click', function() {
@@ -331,19 +323,6 @@ document.querySelector("#basicToastBtn").onclick = function() {
         total: "",
         tanggal: "",
     }
-    
-    // for (var i = 0; i < localStorage.length; i++) {
-    //     var key = localStorage.key(i);
-    //     var value = localStorage.getItem(key);
-    //     key = key.split('_')
-    //         // console.log(key[0], typeof(JSON.parse(value)))
-    //     if (key[0] === elNama.value) {
-    //         if (count < key[1]) {
-    //             count = parseInt(key[1])
-    //         }
-    //     }
-    // }
-    // console.log(count)
 }
 
 // fungsi menyembunyikan toast
@@ -423,6 +402,4 @@ function renderCart(product, productqty){
     let div2 = document.createElement('div')
     div2.insertAdjacentHTML('beforeend', div)
     return div2
-
 }
-
