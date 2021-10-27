@@ -252,29 +252,17 @@
                     </div>
                 </div>
                 <div class="col-12 mt-3 d-flex justify-content-between">
-                    <button type="submit" class="btn btn-outline-success">
+                    <a href="/keranjang/keranjang.html" type="submit" class="btn btn-outline-success" id="previous1">
+                        Sebelumnya
+                    </a>
+                    <button type="submit" class="btn btn-outline-success d-none" id="previous3">
                         Sebelumnya
                     </button>
                     <button class="btn btn-success" id="btnSubmit1">
                         Selanjutnya
                     </button>
-
-
-                    <button type="button" class="btn btn-success d-none" id="basicToastBtn">Selanjutnya</button>
-                    <div class="toast-container d-none position-fixed top-0 end-0 p-3">
-                        <div id="basicToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
-                            style="border:none;">
-                            <div class="toast-header text-light bg-success">
-                                <h5 class="my-0">Transaksi Berhasil <i class="fas fa-check-circle"></i></h5>
-                            </div>
-                            <div class="toast-body text-black text-white bg-success">
-                                <p>Pesanan anda telah dibuat silahkan lanjut ke pembayaran</p>
-                                <a href="/pembayaran.html" class="btn btn-outline-success text-end text-white"
-                                    id="toastButton" style="border-color: white; margin-left: 75%;">Lanjut</a>
-                            </div>
-                        </div>
-
-                    </div>
+                    <a href="../pembayaran.html" type="button" class="btn btn-success d-none"
+                        id="basicToastBtn">Selanjutnya</a>
                 </div>
             </div>
             <!-- Tab metode pembayaran -->
@@ -386,7 +374,7 @@
 
                 </div>
                 <div class="col-12 mt-3 d-flex justify-content-between">
-                    <button type="submit" class="btn btn-outline-success">
+                    <button type="submit" class="btn btn-outline-success" id="previous2">
                         Sebelumnya
                     </button>
                     <button class="btn btn-success" id="btnSubmit2">
@@ -406,7 +394,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous ">
         </script>
     <script type="module" src="index.js "></script>
-    <script type="module" src="/js/checklogin.js"></script>
+    <!-- <script type="module" src="/js/checklogin.js"></script> -->
 
 </body>
 

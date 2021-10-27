@@ -101,6 +101,15 @@ export const setKeranjang = (products) => {
   setLocalStorage("keranjang", JSON.stringify(keranjangValue))
 }
 
+export const updateKeranjang = products => {
+  let allKeranjang = getKeranjang()
+  
+  let productIndex = allKeranjang.findIndex(element => element.productId === products.productId)
+  allKeranjang[productIndex].qty = products.qty
+  
+  setLocalStorage("keranjang", JSON.stringify(allKeranjang))
+}
+
 // TEMPORARY DATA AFTER KERANJANG CHOOSE
 export const getTempData = () => {
   let tempData = getLocalStorage("tempData")
@@ -109,32 +118,33 @@ export const getTempData = () => {
 }
 
 export const setTempData = (data) => {
-  let allTempData = getTempData()
-  let tempDataValue;
+  // let allTempData = getTempData()
+  // let tempDataValue;
   
-  if(allTempData) {
-    let productIndex = allTempData.findIndex(element => element.productId === data.productId)
+  // if(allTempData) {
+    // let productIndex = allTempData.findIndex(element => element.productId === data.productId)
     
-    if(productIndex >= 0) {
-      allTempData[productIndex].qty = data.qty
-    } else {
-      allTempData.push(data)
-    }
-    tempDataValue = allTempData
-  } else {
-    tempDataValue = [data]
-  }
+    // if(productIndex >= 0) {
+    //   allTempData[productIndex].qty = data.qty
+    // } else {
+    //   allTempData.push(data)
+    // }
+    // tempDataValue = allTempData
+  // } else {
+    // tempDataValue = [data]
+  // }
   
-  setLocalStorage("tempData", JSON.stringify(tempDataValue))
+  setLocalStorage("tempData", JSON.stringify(data))
 }
 
-export const delTempData = (id) => {
-  let allTempData = getTempData()
-  let productIndex = allTempData.findIndex(element => element.productId === id)
+export const delKeranjangData = (id) => {
+  let allKeranjang = getKeranjang()
+  let productIndex = allKeranjang.findIndex(element => element.productId == id)
   
-  allTempData.slice(productIndex, 1)
+  allKeranjang.splice(productIndex, 1)
+
   
-  setLocalStorage("tempData", JSON.stringify(allTempData))
+  setLocalStorage("keranjang", JSON.stringify(allKeranjang))
 }
 
 // FETCH API
@@ -151,4 +161,12 @@ export const getProductById = async (productId) => {
   let response = await fetch(url)
   let data = await response.json()
   return data
+}
+
+export const getTestimoniByPordId = async(productId) => {
+  const url = 'https://6172fc04110a740017222f15.mockapi.io/userReview'
+  let response = await fetch(url)
+  let data = await response.json()
+  let testimoni = data.filter(value => value.prodID == productId)
+  return testimoni
 }

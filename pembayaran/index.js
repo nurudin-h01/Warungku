@@ -1,3 +1,7 @@
+// import {delKeranjangData} from "../js/helpers"
+
+import { delKeranjangData } from "../js/helpers.js"
+
 
 // element form
 let elNama = document.querySelector('#namaLengkap')
@@ -13,6 +17,9 @@ let subtotal = document.querySelector('.subtotal')
 let elBtnpage1 = document.querySelector('#btnSubmit1')
 let elBtnpage2 = document.querySelector("#btnSubmit2")
 let btnToast = document.querySelector('#basicToastBtn')
+let elbtnpre1 = document.querySelector('#previous1')
+let elbtnpre2 = document.querySelector('#previous2')
+let elbtnpre3 = document.querySelector('#previous3')
 
 // element button tab
 let elTabMetode = document.querySelector('#metodePembayaran')
@@ -42,7 +49,7 @@ let image = document.querySelector('.metode')
 let provider_image = document.querySelector('#metodebayar')
 
 // element toast
-let btnHideToast = document.querySelector('#toastButton')
+// let btnHideToast = document.querySelector('#toastButton')
 
 let methods = document.querySelectorAll('.method')
 
@@ -51,6 +58,12 @@ let temp_total = 0
 
 // Untuk simpan ke local
 let local = []
+let localhistory = localStorage.getItem('History')
+if(localhistory){
+    let lasthistory = JSON.parse(localhistory)
+    local = lasthistory
+}
+
 let transaction = {
     nama: "",
     email: "",  
@@ -58,6 +71,7 @@ let transaction = {
     noTelepon: "",
     buah: {},
     total: "",
+    tanggal:"",
 }
 let temp = []
 
@@ -90,18 +104,10 @@ elAlamat.addEventListener('blur', function() {
     }
 })
 
-// perhitungan total harga load awal
-// for (let i = 0; i < price2.length; i++) {
-//     let total = price2[i].textContent * amount[i].textContent
-//     temp_total += total
-// }
-// let subtotal = document.querySelector('.subtotal')
-// subtotal.innerHTML = temp_total
-
 
 // fungsi untuk submit page 1
 elBtnpage1.addEventListener('click', function() {
-    console.log(alertshow.childNodes)
+
     if (parseInt(elkirim.value) == 1) {
         if (elNama.value && elkirim.value) {
             elNama.setAttribute('value', elNama.value)
@@ -170,7 +176,7 @@ function activatedpage2() {
 
 // fungsi tab 1
 elTabPengiriman.addEventListener('click', function() {
-    console.log('test')
+
     activatedcart()
     elTabPengiriman.classList.add('active')
     elTabData.classList.add('show', 'active')
@@ -178,6 +184,8 @@ elTabPengiriman.addEventListener('click', function() {
     elTabMetodePembayaran.classList.remove('show', 'active')
     image.classList.add('d-none')
     btnToast.classList.add('d-none')
+    elbtnpre3.classList.add('d-none')
+    elbtnpre1.classList.remove('d-none')
     elBtnpage1.classList.remove('d-none')
 })
 
@@ -186,6 +194,25 @@ elTabMetode.addEventListener('click', function() {
     elTabData.classList.remove('show', 'active')
     elTabMetode.classList.add('show', 'active')
     elTabMetodePembayaran.classList.add('show', 'active')
+})
+
+elbtnpre3.addEventListener('click', function() {
+    elTabData.classList.remove('show', 'active')
+    elTabMetode.classList.add('show', 'active')
+    elTabMetodePembayaran.classList.add('show', 'active')
+})
+
+elbtnpre2.addEventListener('click', function() {
+    activatedcart()
+    elTabPengiriman.classList.add('active')
+    elTabData.classList.add('show', 'active')
+    elTabMetode.classList.remove('active')
+    elTabMetodePembayaran.classList.remove('show', 'active')
+    image.classList.add('d-none')
+    btnToast.classList.add('d-none')
+    elbtnpre3.classList.add('d-none')
+    elbtnpre1.classList.remove('d-none')
+    elBtnpage1.classList.remove('d-none')
 })
 
 // fungsi tab e wallet pada page 2
@@ -272,6 +299,8 @@ elReview.addEventListener('click', function() {
     elTabMetode.classList.remove('active')
     elTabMetodePembayaran.classList.remove('show', 'active')
     image.classList.remove('d-none')
+    elbtnpre3.classList.remove('d-none')
+    elbtnpre1.classList.add('d-none')
     disabledcart()
 })
 
@@ -282,35 +311,34 @@ elReview.addEventListener('click', function() {
 document.querySelector("#basicToastBtn").onclick = function() {
     let modal = document.querySelector('.toast-container')
     modal.classList.remove('d-none')
-    new bootstrap.Toast(document.querySelector('#basicToast')).show();
     transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
     transaction.noTelepon = elNomorTelepon.value
     local.push(transaction)
     localStorage.setItem(`History`, JSON.stringify(local));
-    
-    // for (var i = 0; i < localStorage.length; i++) {
-    //     var key = localStorage.key(i);
-    //     var value = localStorage.getItem(key);
-    //     key = key.split('_')
-    //         // console.log(key[0], typeof(JSON.parse(value)))
-    //     if (key[0] === elNama.value) {
-    //         if (count < key[1]) {
-    //             count = parseInt(key[1])
-    //         }
-    //     }
-    // }
-    // console.log(count)
+    transaction = {
+        nama: "",
+        email: "",  
+        alamat: "",
+        noTelepon: "",
+        buah: {},
+        total: "",
+        tanggal: "",
+    }
+    let localtempData = localStorage.getItem('tempData')
+    localtempData = JSON.parse(localtempData)
+    for (let id in localtempData){
+        let product = localtempData[id].productId
+        console.log(product)
+        delKeranjangData(product)
+        
+    }
 }
 
-// fungsi menyembunyikan toast
-btnHideToast.addEventListener('click', function() {
-    let basic = document.querySelector('#basicToast')
-    basic.classList.add('fade', 'hide')
-    let modal = document.querySelector('.toast-container')
-    modal.classList.add('d-none')
-})
+
+
+//hapus keranjang
 
 
 
@@ -324,11 +352,14 @@ const getProductById = async (productId) => {
 // fungsi ambil data untuk pesanan
 function cartItem(){
     let ulcard = document.querySelector('.list-item')
-    let id =  localStorage.getItem('keranjang')
+    let id =  localStorage.getItem('tempData')
     let subtotal = document.querySelector('.subtotal')
     id = JSON.parse(id)
     temp_total = 0
     let temp = []
+    let today = new Date();
+    let todaydate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    
     const renderItem = async() => {
         for (let property in id) {
             let idProduct = id[property].productId
@@ -341,6 +372,8 @@ function cartItem(){
                 namaItem : detail.name,
                 harga: detail.harga,
                 quantity: qtyProduct,
+                idItem: detail.id,
+                tanggal: todaydate
             }
             temp.push(history)
             temp_total += subtotal_price
@@ -348,7 +381,7 @@ function cartItem(){
         }
         transaction.buah = temp
         transaction.total = temp_total
-        console.log(transaction)       
+    
     }
     renderItem()    
 }
@@ -377,6 +410,4 @@ function renderCart(product, productqty){
     let div2 = document.createElement('div')
     div2.insertAdjacentHTML('beforeend', div)
     return div2
-
 }
-

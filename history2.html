@@ -23,7 +23,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand text-success fw-bold w-50" href="/index.html">WarungMama</a>
+        <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
               <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="kategori/kategori.html">Produk</a>
+              <a class="nav-link active" aria-current="page" href="kategori/kategori.html">Produk</a>
             </li>
           </ul>
 
@@ -50,8 +50,8 @@
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
 
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="akun.html"><i class="fas fa-user me-2"></i> Akun</a></li>
-                    <li><a class="dropdown-item active" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
                         Riwayat Belanja</a>
                     </li>
 
@@ -65,7 +65,6 @@
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </nav>
@@ -108,25 +107,7 @@
                 <th class="bg-success text-white fw-normal">Harga</th>
               </tr>
             </thead>
-
-            <tbody>
-              <tr class="text-center">
-                <td>1</td>
-                <td><img src="img/jamur.jpg" width="100px">
-                  <p>Jamur Tiram </p>
-                </td>
-                <td>1 kg</td>
-                <td>10000</td>
-              </tr>
-              <tr class="text-center">
-                <td>2</td>
-                <td><img src="img/pisang.jpg" width="80px">
-                  <p>Pisang </p>
-                </td>
-                <td>1 kg</td>
-                <td>10000</td>
-              </tr>
-
+            <tbody class="table_body">
             </tbody>
           </table>
         </div>
@@ -144,6 +125,7 @@
     crossorigin="anonymous"></script>
 
   <script type="module" src="/js/checklogin.js"></script>
+  <script src="/js/history.js"></script>
 
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
