@@ -309,7 +309,7 @@ elReview.addEventListener('click', function() {
 
 // fungsi memanggil toast dan set local
 let btn_toast =  document.querySelector("#basicToastBtn")
-btnToast.addEventListener('click', function(){
+btn_toast.addEventListener('click', function(){
     console.log('test')
     transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
