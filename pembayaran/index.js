@@ -7,6 +7,7 @@ let elkirim = document.querySelector('#pengiriman')
 let deliveryPrice = document.querySelector('.delivery-price')
 let delivery = document.querySelector('.delivery')
 let alertshow = document.querySelector('.alert-danger')
+let subtotal = document.querySelector('.subtotal')
 
 // element button
 let elBtnpage1 = document.querySelector('#btnSubmit1')
@@ -33,8 +34,8 @@ let elAtmContent = document.querySelector("#tabatm")
 
 // element content tab 1
 let cart1 = document.querySelectorAll('.card-items')
-let price2 = document.querySelectorAll('.price')
 let amount = document.querySelectorAll('.amount')
+
 
 // element content tab 3
 let image = document.querySelector('.metode')
@@ -50,6 +51,15 @@ let temp_total = 0
 
 // Untuk simpan ke local
 let local = []
+let transaction = {
+    nama: "",
+    email: "",  
+    alamat: "",
+    noTelepon: "",
+    buah: {},
+    total: "",
+}
+let temp = []
 
 
 // fungsi untuk form pengiriman
@@ -81,12 +91,12 @@ elAlamat.addEventListener('blur', function() {
 })
 
 // perhitungan total harga load awal
-for (let i = 0; i < price2.length; i++) {
-    let total = price2[i].textContent * amount[i].textContent
-    temp_total += total
-}
-let subtotal = document.querySelector('.subtotal')
-subtotal.innerHTML = temp_total
+// for (let i = 0; i < price2.length; i++) {
+//     let total = price2[i].textContent * amount[i].textContent
+//     temp_total += total
+// }
+// let subtotal = document.querySelector('.subtotal')
+// subtotal.innerHTML = temp_total
 
 
 // fungsi untuk submit page 1
@@ -270,15 +280,6 @@ elReview.addEventListener('click', function() {
 
 // fungsi memanggil toast dan set local
 document.querySelector("#basicToastBtn").onclick = function() {
-    let transaction = {
-        nama: "",
-        email: "",  
-        alamat: "",
-        noTelepon: "",
-        buah: {},
-        total: "",
-    }
-    temp = []
     let modal = document.querySelector('.toast-container')
     modal.classList.remove('d-none')
     new bootstrap.Toast(document.querySelector('#basicToast')).show();
@@ -286,21 +287,18 @@ document.querySelector("#basicToastBtn").onclick = function() {
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
     transaction.noTelepon = elNomorTelepon.value
-    let subtotal = document.querySelector('.subtotal')
-    cart1.forEach(function(cart) {
-        let fruit = cart.querySelector('.fruit')  
-        let price = cart.querySelector('.price')
-        let history = {
-            namaItem : fruit.textContent,
-            harga: price.textContent,
-        }
-        temp.push(history)
-    })
-    transaction.buah = temp
-    transaction.total = subtotal.textContent
     local.push(transaction)
     localStorage.setItem(`History`, JSON.stringify(local));
-    console.log(local)
+    // let transaction = {
+    //     nama: "",
+    //     email: "",  
+    //     alamat: "",
+    //     noTelepon: "",
+    //     buah: {},
+    //     total: "",
+    // }
+    // let temp = []
+    
     // for (var i = 0; i < localStorage.length; i++) {
     //     var key = localStorage.key(i);
     //     var value = localStorage.getItem(key);
@@ -324,42 +322,71 @@ btnHideToast.addEventListener('click', function() {
 })
 
 
-// fungsi ambil data untuk pesanan
-function cartItem(){
-    // Masih nunggu local storage
-    let card_body = document.createElement('div')
-    card_body.className = 'card-body card-items'
-    let row = document.createElement('div')
-    row.className = 'row'
-    let title = document.createElement('h6')
-    title.className = 'fw-bold fruit'
-    let col_3 = document.createElement('div')
-    col_3.className = 'col-3'
-    let img = document.createElement('img')
-    img.setAttribute('src', '//')
-    img.setAttribute('height', '80px')
-    img.setAttribute('width', '80px')
-    img.setAttribute('style', 'object-fit: cover')
-    let col_5 = document.createElement('div')
-    col_5.className = 'col-5'
-    let div_col5 = document.createElement('div')
-    div_col5.className = 'd-flex ms-auto me-auto mt-4 justify-content-center'
-    let p = document.createElement('p')
-    p.className = 'amount'
-    let col_4 = document.createElement('div')
-    col_4.className = 'col-4'
-    let h6 = document.createElement('h6')
-    h6.className = 'mt-4 price fw-normal text-center'
-    col_3.appendChild(img)
-    div_col5.appendChild(p)
-    col_5.appendChild(div_col5)
-    col_4.appendChild(h6)
-    row.appendChild(title)
-    row.appendChild(col_3)
-    row.appendChild(col_5)
-    row.appendChild(col_4)
-    card_body.appendChild(row)
-    test1.appendChild(card_body)
+
+const getProductById = async (productId) => {
+    const url = `https://6172fc04110a740017222f15.mockapi.io/products/${productId}`
+    let response = await fetch(url)
+    let data = await response.json()
+    return data
 }
 
+// fungsi ambil data untuk pesanan
+function cartItem(){
+    let ulcard = document.querySelector('.list-item')
+    let id =  localStorage.getItem('keranjang')
+    let subtotal = document.querySelector('.subtotal')
+    id = JSON.parse(id)
+    temp_total = 0
+    let temp = []
+    const renderItem = async() => {
+        for (let property in id) {
+            let idProduct = id[property].productId
+            let qtyProduct = id[property].qty
+            let detail = await getProductById(idProduct)
+            let render = await renderCart(detail, qtyProduct)
+            ulcard.appendChild(render)
+            let subtotal_price = qtyProduct * detail.harga
+            let history = {
+                namaItem : detail.name,
+                harga: detail.harga,
+                quantity: qtyProduct,
+            }
+            temp.push(history)
+            temp_total += subtotal_price
+            subtotal.innerHTML = temp_total
+        }
+        transaction.buah = temp
+        transaction.total = temp_total
+        console.log(transaction)       
+    }
+    renderItem()    
+}
 cartItem()
+
+
+function renderCart(product, productqty){
+    let div =`
+    <div class="card-body card-items">
+        <div class="row">
+            <h6 class="fw-bold fruit">${product.name}</h6>
+            <div class="col-3">
+                <img src="${product.img}" width="80px" height="80px"
+                style="object-fit: cover" alt="..." />
+            </div>
+            <div class="col-5">
+                <div class="d-flex ms-auto me-auto mt-4 justify-content-center ">
+                    <p class="amount">${productqty}</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <h6 class="mt-4 price fw-normal text-center">${product.harga}</h6>
+            </div>
+        </div>
+    </div>`
+    let div2 = document.createElement('div')
+    div2.insertAdjacentHTML('beforeend', div)
+    return div2
+
+}
+
+
