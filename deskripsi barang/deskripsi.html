@@ -1,120 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deskripsi</title>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/deskripsi barang/deskripsi.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deskripsi</title>
+  <!-- JAVASCRIPT -->
+  <script data-require="jquery@3.1.1" data-semver="3.1.1"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="kategori.js" />
 
-    
-  </head>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand text-success fw-bold w-50" href="#">Warung Mama</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Produk</a>
-              </li>
-            </ul>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/deskripsi barang/deskripsi.css" />
 
-            <div class="nav navbar-nav ms-auto w-100 justify-content-end">
-              <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand text-success fw-bold w-50" href="#">WarungMama</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/kategori/kategori.html">Produk</a>
+            </li>
+          </ul>
+
+          <div class="nav navbar-nav ms-auto w-100 justify-content-end">
+            <button class="btn btn-sm btn-success" id="loginBtn">Masuk</button>
+
+            <div class="d-none" id="account-menu">
+              <ul class="navbar-nav mb-2 mb-md-0 w-100 justify-content-center">
+                <li class="nav-item"><a class="nav-link fs-3" href="/keranjang/keranjang.html"><i
+                      class="fas fa-shopping-bag"></i></a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-3" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-circle"></i></a>
+
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/akun.html"><i class="fas fa-user me-2"></i> Akun</a></li>
+                    <li><a class="dropdown-item" href="/history2.html"><i class="fas fa-clipboard-list me-2"></i>
+                        Riwayat Belanja</a>
+                    </li>
+
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item text-danger" id="logoutBtn" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <br></br>
 
-    
+        </div>
+      </div>
+    </nav>
+  </header>
   
-   
-    <!-- SECTION KETERANGAN -->
-    <h1 class="judul">Apel Merah</h1>
-    <div class="col-md-12 figure-image" >
-      <div class="row">
+
+  <!-- SECTION KETERANGAN -->
+  <div class="container my-5 pb-5">
+    <div>
+      <button onclick="window.history.back()" class="btn btn-sm btn-secondary">Kembali</button>
+    </div>
+    <h1 class="judul pt-0 pb-3 mt-5 px-0 mx-0" id="judul"></h1>
+    <!-- <div class="col-md-12 "> -->
+      <div class="row gx-md-5 justify-content-center d-none" id="deskripsiProduk">
         <div class="col-md-6">
-          <figure class="figure">
-            <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" class="figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">
-              
+          <figure class="figure" style="max-width: inherit;">
+            <img
+              src=""
+              class="figure-img img-fluid rounded" alt="..." id="product-image">
+
+            <figcaption class="figure-caption mt-2">
+
               <!-- ICON -->
               <i class="fas fa-heart fa-2x"></i>
               <i class="far fa-comment fa-2x"></i>
-              <span class="fa fa-star checked fa-2x" > 4.9</span>
+              <span class="fa fa-star checked fa-2x float-end"> 4.9</span>
             </figcaption>
+          </figure>
         </div>
-    <div class=" keterangan col-md-4">
-          <h2>Keterangan </h2>
-          <p id="desc">Apel merah menyimpan banyak antosianin hingga lima kali lebih banyak dari apel hijau seperti Granny Smiths. Antosianin merupakan pigmen yang menjadikan kulit apel berwarna lebih gelap. Pigmen antosianin ini menawarkan manfaat bagi kesehatan jantung dan menurunkan kolesterol.</p>
-          <br></br>
-          <h2>Harga</h2>
-          <p >Rp. 37.000 / kg</p>
-        <!-- JUMLAH -->
-        <div class="quantity">
-          <h2>Jumlah</h2>
-          <div class="quantity buttons_added">
-            <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">Tersisa 10kg
+        <div class="keterangan col-md-6 col-lg-5">
+          <div>
+            <h2>Keterangan </h2>
+            <p id="desc" class="fs-5"></p>
+          </div>
+
+          <div class="mt-4">
+            <h2>Harga</h2>
+            <p id="product-harga"></p>
+          </div>
+          
+          <!-- JUMLAH -->
+          <div class="mt-4">
+            <h2>Jumlah</h2>
+            <div class="quantity buttons_added">
+              <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity"
+                value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button"
+                value="+" class="plus">
+                <span class="fs-5 ms-4" id="product-stock">Tersisa </span>
+            </div>
+          </div>
+
+          <!-- Button beli -->
+          <div class="d-grid mt-5 w-75">
+            <button class="btn btn-success" type="button" id="beli-sekarang">Beli Sekarang</button>
           </div>
         </div>
-      </figure>
-
-      <!-- Button beli -->
-      <div class="button-beli d-grid gap-2">
-        <button class="btn btn-success" type="button">Beli Sekarang</button>
       </div>
+
+      <div class="row d-none" id="notFound">
+        <h3 class="text-center">Maaf, Produk Tidak Ditemukan</h3>
+      </div>
+    <!-- </div> -->
+  </div>
+
+  <!-- REVIEW SEECTION -->
+  <section class="container pb-5 d-none" id="testimoni-section">
+    <h3 class="text-center">Testimoni</h3>
+    <div class="row mt-4 gy-3" id="testimoni">
+      
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-muted py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-5 col-sm-12">
+          <img src="/img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid"/>
+        </div>
+        <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
+          <h4 class="text-success fs-3">WarungMama</h4>
+          <p class="fs-5">WarungMama merupakan sebuah website yang menyediakan berbagai produk kebutuhan pokok berupa bahan makanan sepert sayur-sayuran dan juga sembako yang dapat dibeli secara online. WarungMama menyediakan dua pilihan pengambilan barang, anda dapat mengambil barang sendiri langsung ke lokasi WarungMama atau memilih pengantaran yang akan diantarkan oleh kurir dari WarungMama.</p>
+          <p class="fs-5">WarungMama terbuka mulai pukul <span class="fw-bold">05.00 WIB - 22.00 WIB</span></p>
+        </div>
+      </div>
+      <div class="row mt-5 text-center">
+        <div class="col">
+          <h6>Created By Kelompok 2 | All Right Reserved</h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Modal Harus Login -->
+    <div class="modal fade" id="shouldLoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+  
+          <div class="modal-body p-4 text-center">
+            <p><img src="https://iili.io/5zEfs9.png" alt="Warning" class="img-fluid w-75"></p>
+            <h5>Mohon maaf, permintaan anda tidak dapat diproses. Anda harus login terlebih dahulu</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <a href="/login.html" class="btn btn-sm btn-success">Masuk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Logout -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body text-center py-4">
+          <p><img src="https://iili.io/5zE6B9.png" alt="Confirm" class="img-fluid w-50"></p>
+          <h3>Anda yakin ingin keluar?</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-sm btn-danger" id="confirmLogout">Yakin</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-    <!-- FOOTER -->
-    <footer class="text-muted py-5 bg-light">
-      <div class="container">
-        <div class="row justify-content-around">
-          <div class="col-lg-4 col-md-5 col-sm-12">
-            <img src="./img/Eco shopping-rafiki.png" alt="Warungku Illustration" class="img-fluid" />
-          </div>
-          <div class="col-lg-6 col-md-7 col-sm-12 my-md-auto">
-            <h4 class="text-success">Warungku</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint impedit eligendi aspernatur consectetur tempora, iusto magni in culpa dolorem maxime quibusdam quam itaque, fuga repellat praesentium eveniet quod reiciendis
-              mollitia.
-            </p>
-          </div>
-        </div>
-        <div class="row mt-5 text-center">
-          <div class="col">
-            <h6>Created By Kelompok 2 | All Right Reserved</h6>
-          </div>
-        </div>
-      </div>
-    </footer>
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-- Bootstrap bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- JAVASCRIPT -->
+  <script type="module" src="/deskripsi barang/deskripsi.js"></script>
+  <script type="module" src="/js/checklogin.js"></script>
+</body>
 
-    <!-- JAVASCRIPT -->
-    <script src="/deskripsi barang/deskripsi.js"></script>
-  </body>
 </html>
-

@@ -1,3 +1,7 @@
+// import {delKeranjangData} from "../js/helpers"
+
+import { delKeranjangData } from "../js/helpers.js"
+
 
 // element form
 let elNama = document.querySelector('#namaLengkap')
@@ -7,11 +11,15 @@ let elkirim = document.querySelector('#pengiriman')
 let deliveryPrice = document.querySelector('.delivery-price')
 let delivery = document.querySelector('.delivery')
 let alertshow = document.querySelector('.alert-danger')
+let subtotal = document.querySelector('.subtotal')
 
 // element button
 let elBtnpage1 = document.querySelector('#btnSubmit1')
 let elBtnpage2 = document.querySelector("#btnSubmit2")
 let btnToast = document.querySelector('#basicToastBtn')
+let elbtnpre1 = document.querySelector('#previous1')
+let elbtnpre2 = document.querySelector('#previous2')
+let elbtnpre3 = document.querySelector('#previous3')
 
 // element button tab
 let elTabMetode = document.querySelector('#metodePembayaran')
@@ -33,31 +41,39 @@ let elAtmContent = document.querySelector("#tabatm")
 
 // element content tab 1
 let cart1 = document.querySelectorAll('.card-items')
-let price2 = document.querySelectorAll('.price')
 let amount = document.querySelectorAll('.amount')
+
 
 // element content tab 3
 let image = document.querySelector('.metode')
 let provider_image = document.querySelector('#metodebayar')
 
 // element toast
-let btnHideToast = document.querySelector('#toastButton')
+// let btnHideToast = document.querySelector('#toastButton')
 
+let methods = document.querySelectorAll('.method')
 
 // untuk tampung total
 let temp_total = 0
 
 // Untuk simpan ke local
+let local = []
+let localhistory = localStorage.getItem('History')
+if(localhistory){
+    let lasthistory = JSON.parse(localhistory)
+    local = lasthistory
+}
+
 let transaction = {
     nama: "",
+    email: "",  
     alamat: "",
     noTelepon: "",
-    kota: "",
     buah: {},
     total: "",
+    tanggal:"",
 }
-temp = []
-let count = 1
+let temp = []
 
 
 // fungsi untuk form pengiriman
@@ -88,18 +104,10 @@ elAlamat.addEventListener('blur', function() {
     }
 })
 
-// perhitungan total harga load awal
-for (let i = 0; i < price2.length; i++) {
-    let total = price2[i].textContent * amount[i].textContent
-    temp_total += total
-}
-let subtotal = document.querySelector('.subtotal')
-subtotal.innerHTML = temp_total
-
 
 // fungsi untuk submit page 1
 elBtnpage1.addEventListener('click', function() {
-    console.log(alertshow.childNodes)
+
     if (parseInt(elkirim.value) == 1) {
         if (elNama.value && elkirim.value) {
             elNama.setAttribute('value', elNama.value)
@@ -168,7 +176,7 @@ function activatedpage2() {
 
 // fungsi tab 1
 elTabPengiriman.addEventListener('click', function() {
-    console.log('test')
+
     activatedcart()
     elTabPengiriman.classList.add('active')
     elTabData.classList.add('show', 'active')
@@ -176,6 +184,8 @@ elTabPengiriman.addEventListener('click', function() {
     elTabMetodePembayaran.classList.remove('show', 'active')
     image.classList.add('d-none')
     btnToast.classList.add('d-none')
+    elbtnpre3.classList.add('d-none')
+    elbtnpre1.classList.remove('d-none')
     elBtnpage1.classList.remove('d-none')
 })
 
@@ -184,6 +194,25 @@ elTabMetode.addEventListener('click', function() {
     elTabData.classList.remove('show', 'active')
     elTabMetode.classList.add('show', 'active')
     elTabMetodePembayaran.classList.add('show', 'active')
+})
+
+elbtnpre3.addEventListener('click', function() {
+    elTabData.classList.remove('show', 'active')
+    elTabMetode.classList.add('show', 'active')
+    elTabMetodePembayaran.classList.add('show', 'active')
+})
+
+elbtnpre2.addEventListener('click', function() {
+    activatedcart()
+    elTabPengiriman.classList.add('active')
+    elTabData.classList.add('show', 'active')
+    elTabMetode.classList.remove('active')
+    elTabMetodePembayaran.classList.remove('show', 'active')
+    image.classList.add('d-none')
+    btnToast.classList.add('d-none')
+    elbtnpre3.classList.add('d-none')
+    elbtnpre1.classList.remove('d-none')
+    elBtnpage1.classList.remove('d-none')
 })
 
 // fungsi tab e wallet pada page 2
@@ -240,13 +269,6 @@ function disabledcart(){
     elAlamat.disabled = true
     elNomorTelepon.disabled = true
     elkirim.disabled = true
-    cart1.forEach(function(cart) {
-        let plus = cart.querySelector('.plus-btn')
-        let minus = cart.querySelector('.minus-btn')
-        plus.disabled = true
-        minus.disabled = true
-        
-    })
 }
 
 // fungsi aktivasi form
@@ -255,12 +277,6 @@ function activatedcart(){
     elAlamat.disabled = false
     elNomorTelepon.disabled = false
     elkirim.disabled = false
-    cart1.forEach(function(cart) {
-        let plus = cart.querySelector('.plus-btn')
-        let minus = cart.querySelector('.minus-btn')
-        plus.disabled = false
-        minus.disabled = false
-    })
 }
 
 // fungsi untuk mengubah status border
@@ -271,29 +287,6 @@ function removeborder() {
     })
 }
 
-// fungsi perhitungan belanja
-cart1.forEach(function(cart) {
-    let amount = cart.querySelector('.amount')
-    let plus = cart.querySelector('.plus-btn')
-    let minus = cart.querySelector('.minus-btn')
-    let subtotal = document.querySelector('.subtotal')
-    let price = cart.querySelector('.price')
-    let sisa = cart.querySelector(".ms-1")
-    plus.addEventListener('click', function() {
-        if (parseInt(sisa.textContent) != 0) {
-            amount.innerHTML = parseInt(amount.textContent) + 1
-            sisa.innerHTML = parseInt(sisa.textContent) - 1
-            subtotal.innerHTML = parseInt(subtotal.textContent) + (parseInt(price.textContent))
-        }
-    })
-    minus.addEventListener('click', function() {
-        if (parseInt(amount.textContent) != 0) {
-            amount.innerHTML = parseInt(amount.textContent) - 1
-            sisa.innerHTML = parseInt(sisa.textContent) + 1
-            subtotal.innerHTML = parseInt(subtotal.textContent) - (parseInt(price.textContent))
-        }
-    })
-})
 
 
 // fungsi tab 3
@@ -306,6 +299,8 @@ elReview.addEventListener('click', function() {
     elTabMetode.classList.remove('active')
     elTabMetodePembayaran.classList.remove('show', 'active')
     image.classList.remove('d-none')
+    elbtnpre3.classList.remove('d-none')
+    elbtnpre1.classList.add('d-none')
     disabledcart()
 })
 
@@ -313,46 +308,109 @@ elReview.addEventListener('click', function() {
 
 
 // fungsi memanggil toast dan set local
-document.querySelector("#basicToastBtn").onclick = function() {
-    let modal = document.querySelector('.toast-container')
-    modal.classList.remove('d-none')
-    new bootstrap.Toast(document.querySelector('#basicToast')).show();
+let btn_toast =  document.querySelector("#basicToastBtn")
+btn_toast.addEventListener('click', function(){
+    console.log('test')
+    transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
     transaction.noTelepon = elNomorTelepon.value
-    let subtotal = document.querySelector('.subtotal')
-    cart1.forEach(function(cart) {
-        let fruit = cart.querySelector('.fruit')  
-        let price = cart.querySelector('.price')
-        let history = {
-            nama_buah : fruit.textContent,
-            harga: price.textContent,
-        }
-        temp.push(history)
-    })
-    transaction.buah = temp
-    transaction.total = subtotal.textContent
-    localStorage.setItem(`${transaction.nama}_${count}`, JSON.stringify(transaction));
-    count += 1
-    console.log(transaction)
-    // for (var i = 0; i < localStorage.length; i++) {
-    //     var key = localStorage.key(i);
-    //     var value = localStorage.getItem(key);
-    //     key = key.split('_')
-    //         // console.log(key[0], typeof(JSON.parse(value)))
-    //     if (key[0] === elNama.value) {
-    //         if (count < key[1]) {
-    //             count = parseInt(key[1])
-    //         }
-    //     }
-    // }
-    // console.log(count)
+    local.push(transaction)
+    localStorage.setItem(`History`, JSON.stringify(local));
+    transaction = {
+        nama: "",
+        email: "",  
+        alamat: "",
+        noTelepon: "",
+        buah: {},
+        total: "",
+        tanggal: "",
+    }
+    let localtempData = localStorage.getItem('tempData')
+    localtempData = JSON.parse(localtempData)
+    for (let id in localtempData){
+        let product = localtempData[id].productId
+        console.log(product)
+        delKeranjangData(product)
+        
+    }
+
+})
+
+
+
+
+
+//hapus keranjang
+
+
+
+const getProductById = async (productId) => {
+    const url = `https://6172fc04110a740017222f15.mockapi.io/products/${productId}`
+    let response = await fetch(url)
+    let data = await response.json()
+    return data
 }
 
-// fungsi menyembunyikan toast
-btnHideToast.addEventListener('click', function() {
-    let basic = document.querySelector('#basicToast')
-    basic.classList.add('fade', 'hide')
-    let modal = document.querySelector('.toast-container')
-    modal.classList.add('d-none')
-})
+// fungsi ambil data untuk pesanan
+function cartItem(){
+    let ulcard = document.querySelector('.list-item')
+    let id =  localStorage.getItem('tempData')
+    let subtotal = document.querySelector('.subtotal')
+    id = JSON.parse(id)
+    temp_total = 0
+    let temp = []
+    let today = new Date();
+    let todaydate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    
+    const renderItem = async() => {
+        for (let property in id) {
+            let idProduct = id[property].productId
+            let qtyProduct = id[property].qty
+            let detail = await getProductById(idProduct)
+            let render = await renderCart(detail, qtyProduct)
+            ulcard.appendChild(render)
+            let subtotal_price = qtyProduct * detail.harga
+            let history = {
+                namaItem : detail.name,
+                harga: detail.harga,
+                quantity: qtyProduct,
+                idItem: detail.id,
+                tanggal: todaydate
+            }
+            temp.push(history)
+            temp_total += subtotal_price
+            subtotal.innerHTML = temp_total
+        }
+        transaction.buah = temp
+        transaction.total = temp_total
+    
+    }
+    renderItem()    
+}
+cartItem()
+
+
+function renderCart(product, productqty){
+    let div =`
+    <div class="card-body card-items">
+        <div class="row">
+            <h6 class="fw-bold fruit">${product.name}</h6>
+            <div class="col-3">
+                <img src="${product.img}" width="80px" height="80px"
+                style="object-fit: cover" alt="..." />
+            </div>
+            <div class="col-5">
+                <div class="d-flex ms-auto me-auto mt-4 justify-content-center ">
+                    <p class="amount">${productqty}</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <h6 class="mt-4 price fw-normal text-center">${product.harga}</h6>
+            </div>
+        </div>
+    </div>`
+    let div2 = document.createElement('div')
+    div2.insertAdjacentHTML('beforeend', div)
+    return div2
+}

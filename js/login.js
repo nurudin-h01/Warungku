@@ -49,16 +49,10 @@ const loginValidation = (elements) => {
     emailPrevSib.classList.remove("border-danger")
     elements.email.classList.add("is-valid")
     emailPrevSib.classList.add("border", "border-success")
-    elements.email.parentElement.nextElementSibling.classList.add("d-none")
-
-    if(validatePassword(password)) {
-
-      elements.password.classList.remove("is-invalid")
-      passwordPrevSib.classList.remove("border-danger")
-      elements.password.parentElement.nextElementSibling.classList.remove("text-danger")
-      elements.password.classList.add("is-valid")
-      passwordPrevSib.classList.add("border-success")
-
+    elements.password.classList.remove("is-invalid")
+    passwordPrevSib.classList.remove("border-danger")
+    elements.password.classList.add("is-valid")
+    passwordPrevSib.classList.add("border-success")
       if(checkRegisteredEmail(email)) {
         if(checkPassword(email, password)) {
           setLocalStorage("login", email)
@@ -68,6 +62,8 @@ const loginValidation = (elements) => {
           alert.firstElementChild.classList.remove("d-none")
           alert.children[1].classList.add("d-none")
           alert.classList.remove("d-none")
+          elements.password.classList.add("is-invalid")
+          passwordPrevSib.classList.add("border", "border-danger")
         }
       } else {
         const alert = document.querySelector(".alert")
@@ -75,11 +71,6 @@ const loginValidation = (elements) => {
         alert.children[1].classList.remove("d-none")
         alert.classList.remove("d-none")
       }
-    } else {
-      elements.password.classList.add("is-invalid")
-      passwordPrevSib.classList.add("border", "border-danger")
-      elements.password.parentElement.nextElementSibling.classList.add("text-danger")
-    }
   }
   else {
     elements.email.classList.add("is-invalid")

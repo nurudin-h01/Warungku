@@ -16,6 +16,11 @@
   font-size: 1.1rem;
 }
 
+.dropdown-item:focus, .dropdown-item.active {
+  background-color: #198754;
+  color: #fff !important;
+}
+
 .dropdown-item#logoutBtn:focus, .dropdown-item#logoutBtn:hover {
   background-color: #dc3545;
   color: white !important;
@@ -40,8 +45,12 @@
   padding: 3.5rem 0
 }
 
-
 /* BORDER RADIUS */
 .rounded-6 {
   border-radius: .6rem!important;
+}
+
+/* COLOR */
+.text-orange {
+  color: orange;
 }
