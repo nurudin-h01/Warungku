@@ -1,4 +1,4 @@
-import { isLogin, getKeranjang, getProducts, getProductById, delTempData, setTempData, updateKeranjang } from "../js/helpers.js";
+import { isLogin, getKeranjang, getProducts, getProductById, setTempData, updateKeranjang } from "../js/helpers.js";
 
 // check login first
 window.onload = () => {

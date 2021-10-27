@@ -1,3 +1,7 @@
+// import {delKeranjangData} from "../js/helpers"
+
+import { delKeranjangData } from "../js/helpers.js"
+
 
 // element form
 let elNama = document.querySelector('#namaLengkap')
@@ -45,7 +49,7 @@ let image = document.querySelector('.metode')
 let provider_image = document.querySelector('#metodebayar')
 
 // element toast
-let btnHideToast = document.querySelector('#toastButton')
+// let btnHideToast = document.querySelector('#toastButton')
 
 let methods = document.querySelectorAll('.method')
 
@@ -307,7 +311,6 @@ elReview.addEventListener('click', function() {
 document.querySelector("#basicToastBtn").onclick = function() {
     let modal = document.querySelector('.toast-container')
     modal.classList.remove('d-none')
-    new bootstrap.Toast(document.querySelector('#basicToast')).show();
     transaction.email = localStorage.getItem("login");
     transaction.nama = elNama.value
     transaction.alamat = elAlamat.value
@@ -323,15 +326,19 @@ document.querySelector("#basicToastBtn").onclick = function() {
         total: "",
         tanggal: "",
     }
+    let localtempData = localStorage.getItem('tempData')
+    localtempData = JSON.parse(localtempData)
+    for (let id in localtempData){
+        let product = localtempData[id].productId
+        console.log(product)
+        delKeranjangData(product)
+        
+    }
 }
 
-// fungsi menyembunyikan toast
-btnHideToast.addEventListener('click', function() {
-    let basic = document.querySelector('#basicToast')
-    basic.classList.add('fade', 'hide')
-    let modal = document.querySelector('.toast-container')
-    modal.classList.add('d-none')
-})
+
+
+//hapus keranjang
 
 
 
@@ -345,13 +352,14 @@ const getProductById = async (productId) => {
 // fungsi ambil data untuk pesanan
 function cartItem(){
     let ulcard = document.querySelector('.list-item')
-    let id =  localStorage.getItem('keranjang')
+    let id =  localStorage.getItem('tempData')
     let subtotal = document.querySelector('.subtotal')
     id = JSON.parse(id)
     temp_total = 0
     let temp = []
     let today = new Date();
     let todaydate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    
     const renderItem = async() => {
         for (let property in id) {
             let idProduct = id[property].productId

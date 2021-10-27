@@ -137,13 +137,14 @@ export const setTempData = (data) => {
   setLocalStorage("tempData", JSON.stringify(data))
 }
 
-export const delTempData = (id) => {
-  let allTempData = getTempData()
-  let productIndex = allTempData.findIndex(element => element.productId === id)
+export const delKeranjangData = (id) => {
+  let allKeranjang = getKeranjang()
+  let productIndex = allKeranjang.findIndex(element => element.productId == id)
   
-  allTempData.slice(productIndex, 1)
+  allKeranjang.splice(productIndex, 1)
+
   
-  setLocalStorage("tempData", JSON.stringify(allTempData))
+  setLocalStorage("keranjang", JSON.stringify(allKeranjang))
 }
 
 // FETCH API
