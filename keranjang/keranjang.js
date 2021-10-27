@@ -100,7 +100,7 @@ const renderKeranjang = async () => {
     let isSuccess = productToBuy(allCheckbox)
 
     if(isSuccess) {
-      location.href = "/pembayaran/"
+      location.href = "/pembayaran/index.html"
     } else {
       modalEl.toggle()
     }

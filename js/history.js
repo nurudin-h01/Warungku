@@ -1,7 +1,12 @@
 let history = localStorage.getItem('History')
 history = JSON.parse(history)
+let user = localStorage.getItem("login")
+let userHistory = history.filter(value => value.email === user)
+console.log(userHistory);
 
-
+if(userHistory < 1) {
+    location.href = "../history1.html"
+}
 
 
 const getProductById = async (productId) => {
@@ -15,6 +20,9 @@ function renderHistory(){
     let number = 1
     for (const items in history){
         let item = history[items].buah
+        if(item.length < 1) {
+            location.href = "../history1.html"
+        };
         for (const fruit in item){
             let table = document.querySelector('.table_body')
             let quantity = item[fruit].quantity
