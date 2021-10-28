@@ -75,39 +75,55 @@ let transaction = {
 }
 let temp = []
 
+let priceitem = 0
 
 // fungsi untuk form pengiriman
+
 elkirim.addEventListener('change', function() {
+    
     if (parseInt(elkirim.value) == 1) {
         elAlamat.disabled = true
         elNomorTelepon.disabled = true
+        elAlamat.value = ""
+        elNomorTelepon.value = ""
+
+        subtotal.innerHTML = temp_total 
+        delivery.classList.add('d-none')
+        deliveryPrice.classList.add('d-none')
+    
+        // delivery.classList.add('d-none')
+        // deliveryPrice.classList.add('d-none')
+        // deliveryPrice.innerHTML = 0
 
     } else {
         elAlamat.disabled = false
         elNomorTelepon.disabled = false
+        delivery.classList.remove('d-none')
+        deliveryPrice.classList.remove('d-none')
+        deliveryPrice.innerHTML = 10000
+        subtotal.innerHTML = temp_total +  10000
 
     }
 })
 
 // fungsi tambah ongkir
-elAlamat.addEventListener('blur', function() {
-    if (elAlamat.value) {
-        delivery.classList.remove('d-none')
-        deliveryPrice.classList.remove('d-none')
-        deliveryPrice.innerHTML = 10000
-        subtotal.innerHTML = parseInt(subtotal.textContent) + 10000
-    } else {
-        delivery.classList.add('d-none')
-        deliveryPrice.classList.add('d-none')
-        deliveryPrice.innerHTML = 0
-        subtotal.innerHTML = parseInt(subtotal.textContent) - 10000
-    }
-})
+// elAlamat.addEventListener('blur', function() {
+//     if (elAlamat.value) {
+//         delivery.classList.remove('d-none')
+//         deliveryPrice.classList.remove('d-none')
+//         deliveryPrice.innerHTML = 10000
+//         subtotal.innerHTML = parseInt(subtotal.textContent) + 10000
+//     } else if(elAlamat.value != ""){
+//         delivery.classList.add('d-none')
+//         deliveryPrice.classList.add('d-none')
+//         deliveryPrice.innerHTML = 0
+//         subtotal.innerHTML = parseInt(subtotal.textContent) - 10000
+//     }
+// })
 
 
 // fungsi untuk submit page 1
 elBtnpage1.addEventListener('click', function() {
-
     if (parseInt(elkirim.value) == 1) {
         if (elNama.value && elkirim.value) {
             elNama.setAttribute('value', elNama.value)
@@ -118,7 +134,6 @@ elBtnpage1.addEventListener('click', function() {
             alertshow.classList.add('show')
             let message = alertshow.querySelector('p')
             message.innerHTML = "Mohon isikan nama"
-
         }
     } else if (parseInt(elkirim.value) == 2) {
         if (elNama.value && elkirim.value && elAlamat.value && elNomorTelepon.value) {
@@ -126,6 +141,10 @@ elBtnpage1.addEventListener('click', function() {
             elkirim.setAttribute('value', elkirim.value)
             elAlamat.setAttribute('value', elAlamat.value)
             elNomorTelepon.setAttribute('value', elNomorTelepon.value)
+            // delivery.classList.remove('d-none')
+            // deliveryPrice.classList.remove('d-none')
+            // deliveryPrice.innerHTML = 10000
+            // subtotal.innerHTML = parseInt(subtotal.textContent) + 10000
             activatedpage2()
         } else {
             if (!elNama.value) {
@@ -380,6 +399,7 @@ function cartItem(){
             }
             temp.push(history)
             temp_total += subtotal_price
+
             subtotal.innerHTML = temp_total
         }
         transaction.buah = temp
