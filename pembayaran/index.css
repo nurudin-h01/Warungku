@@ -16,6 +16,10 @@ a {
 	border-bottom: 2px solid #27ae60 !important;
 	color: green;
 }
+#myTab_metode .nav-link.active {
+	border-bottom: 2px solid #27ae60 !important;
+	color: green;
+}
 
 .tabs-style {
 	width: 100% !important;
@@ -28,5 +32,10 @@ a {
 
 #myTab .nav-link:focus,
 #myTab .nav-link :hover {
+	color: green !important;
+}
+
+#myTab_metode .nav-link:focus,
+#myTab_metode .nav-link :hover {
 	color: green !important;
 }
