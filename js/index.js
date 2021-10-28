@@ -32,12 +32,12 @@ logoutBtnEl.addEventListener('click', () => {
 
 belanjaBtnEl.forEach(belanjaBtn => {
   belanjaBtn.addEventListener('click', () => {
-    if(!isLogin()) {
-      modalEl.toggle()
-    } else {
+    // if(!isLogin()) {
+    //   modalEl.toggle()
+    // } else {
       let dest = belanjaBtn.getAttribute("data-kategori")
       location.href = `kategori/kategori.html#${dest}`
-    }
+    // }
   })
 })
 

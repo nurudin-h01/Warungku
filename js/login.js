@@ -53,24 +53,30 @@ const loginValidation = (elements) => {
     passwordPrevSib.classList.remove("border-danger")
     elements.password.classList.add("is-valid")
     passwordPrevSib.classList.add("border-success")
-      if(checkRegisteredEmail(email)) {
-        if(checkPassword(email, password)) {
-          setLocalStorage("login", email)
-          return true
-        } else {
-          const alert = document.querySelector(".alert")
-          alert.firstElementChild.classList.remove("d-none")
-          alert.children[1].classList.add("d-none")
-          alert.classList.remove("d-none")
-          elements.password.classList.add("is-invalid")
-          passwordPrevSib.classList.add("border", "border-danger")
-        }
+    if(checkRegisteredEmail(email)) {
+      if(checkPassword(email, password)) {
+        setLocalStorage("login", email)
+        return true
       } else {
         const alert = document.querySelector(".alert")
-        alert.children[0].classList.add("d-none")
-        alert.children[1].classList.remove("d-none")
+        alert.firstElementChild.classList.remove("d-none")
+        alert.children[1].classList.add("d-none")
         alert.classList.remove("d-none")
+        elements.password.classList.add("is-invalid")
+        passwordPrevSib.classList.add("border", "border-danger")
       }
+    } else {
+      const alert = document.querySelector(".alert")
+      alert.children[0].classList.add("d-none")
+      alert.children[1].classList.remove("d-none")
+      alert.classList.remove("d-none")
+      elements.email.classList.add("is-invalid")
+      emailPrevSib.classList.add("border", "border-danger")
+      elements.password.classList.remove("is-invalid")
+      passwordPrevSib.classList.remove("border-danger")
+      elements.password.classList.remove("is-valid")
+      passwordPrevSib.classList.remove("border-success")
+    }
   }
   else {
     elements.email.classList.add("is-invalid")
